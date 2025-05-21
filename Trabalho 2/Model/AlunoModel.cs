@@ -3,20 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Trabalho_2.Model.Abstrato;
 using Trabalho2.Entidades;
 
 namespace Trabalho_2.Model
 {
-    public class AlunoModel
+    public class AlunoModel : IModel<Aluno>
     {
-        List<Aluno> alunos;
+        private List<Aluno> alunos;
+        public int idAtual { get; private set; }
 
-        private void AdicionarAluno(Aluno aluno)
+        public AlunoModel()
         {
-            alunos.Add(aluno);
+            alunos = new List<Aluno>();
+            idAtual = 0;
         }
 
-        private bool RemoverAluno(int id)
+        public void Add(Aluno aluno)
+        {
+            aluno.Id = idAtual;
+            alunos.Add(aluno);
+            idAtual++;
+        }
+
+        public bool Remove(int id)
         {
             Aluno aluno = alunos.FirstOrDefault(a => a.Id == id);
             if (aluno != null)
@@ -27,7 +37,7 @@ namespace Trabalho_2.Model
             return false;
         }
 
-        public Aluno GetAluno(int id)
+        public Aluno Get(int id)
         {
             return alunos.FirstOrDefault(a => a.Id == id);
         }
@@ -37,7 +47,7 @@ namespace Trabalho_2.Model
             return alunos;
         }
 
-        public Aluno GetAlunoByMatricula(int numero)
+        public Aluno GetByMatricula(int numero)
         {
             return alunos.FirstOrDefault(a => a.Matricula.Numero == numero);
         }

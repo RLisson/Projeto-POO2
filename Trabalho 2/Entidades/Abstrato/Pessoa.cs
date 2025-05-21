@@ -11,5 +11,12 @@ namespace Trabalho2.Entidades.Abstrato
         public int Id { get; set; }
         public string Nome { get; set; }
         public string CPF { get; set; }
+
+        public Pessoa() { }
+        public Pessoa(string Nome, string CPF)
+        {
+            this.Nome = Nome;
+            this.CPF = CPF;
+        }
     }
 }

@@ -10,9 +10,9 @@ namespace Trabalho_2.View.Interface
     internal interface IAlunoView
     {
         void SetController(AlunoController controller);
-        int Id { get; set; }
+        string Id { get; set; }
         string Nome { get; set; }
         string CPF { get; set; }
-        int Matricula { get; set; }
+        string Matricula { get; set; }
     }
 }

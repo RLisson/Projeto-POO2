@@ -17,10 +17,33 @@ namespace Trabalho_2.View
     {
         AlunoController _controller;
 
-        public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Nome { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string CPF { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Matricula { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        // Implementação interface
+        public string Id
+        {
+            get => txtId.Text;
+            set => txtId.Text = value;
+        }
+        public string Nome 
+        {
+            get => txtNome.Text;
+            set => txtNome.Text = value; 
+        }
+        public string CPF 
+        { 
+            get => txtCPF.Text; 
+            set => txtCPF.Text = value; 
+        }
+        public string Matricula 
+        {
+            get => txtMatricula.Text;
+            set => txtMatricula.Text = value; 
+        }
+        public void SetController(AlunoController controller)
+        {
+            _controller = controller;
+        }
+        //
 
         public AlunoView()
         {
@@ -36,9 +59,5 @@ namespace Trabalho_2.View
 
         }
 
-        public void SetController(AlunoController controller)
-        {
-            _controller = controller;
-        }
     }
 }

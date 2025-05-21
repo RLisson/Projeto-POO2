@@ -10,5 +10,11 @@ namespace Trabalho2.Entidades
     {
         public int Id { get; set; }
         public int Numero { get; set; }
+
+        public Matricula() { }
+        public Matricula(int numero)
+        {
+            Numero = numero;
+        }
     }
 }
