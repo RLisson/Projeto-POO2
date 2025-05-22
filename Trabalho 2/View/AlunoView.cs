@@ -49,6 +49,7 @@ namespace Trabalho_2.View
         {
             InitializeComponent();
         }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -56,8 +57,27 @@ namespace Trabalho_2.View
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            _controller.Add();
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
 
         }
 
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            _controller.Remove();
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            _controller.Get();
+        }
+
+        private void btnConsultaMatricula_Click(object sender, EventArgs e)
+        {
+            _controller.GetByMatricula();
+        }
     }
 }

@@ -47,19 +47,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AlunoController.cs" />
+    <Compile Include="Entidades\Abstrato\IHasId.cs" />
     <Compile Include="Entidades\Abstrato\Pessoa.cs" />
     <Compile Include="Entidades\Aluno.cs" />
     <Compile Include="Entidades\Curso.cs" />
     <Compile Include="Entidades\Matricula.cs" />
     <Compile Include="Entidades\Professor.cs" />
     <Compile Include="Entidades\Turma.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Abstrato\IModel.cs" />
+    <Compile Include="Model\Abstrato\Model.cs" />
     <Compile Include="Model\AlunoModel.cs" />
     <Compile Include="Model\MatriculaModel.cs" />
     <Compile Include="Program.cs" />
@@ -71,6 +72,9 @@
       <DependentUpon>AlunoView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Interface\IAlunoView.cs" />
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

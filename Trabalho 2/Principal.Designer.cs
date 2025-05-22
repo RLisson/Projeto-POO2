@@ -1,6 +1,6 @@
 ﻿namespace Trabalho_2
 {
-    partial class Form1
+    partial class Principal
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -28,13 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnCadastroAlunos = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnCadastroAlunos
+            // 
+            this.btnCadastroAlunos.Location = new System.Drawing.Point(59, 52);
+            this.btnCadastroAlunos.Name = "btnCadastroAlunos";
+            this.btnCadastroAlunos.Size = new System.Drawing.Size(75, 46);
+            this.btnCadastroAlunos.TabIndex = 0;
+            this.btnCadastroAlunos.Text = "Cadastro Alunos";
+            this.btnCadastroAlunos.UseVisualStyleBackColor = true;
+            this.btnCadastroAlunos.Click += new System.EventHandler(this.btnCadastroAlunos_Click);
+            // 
+            // Principal
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCadastroAlunos);
+            this.Name = "Principal";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnCadastroAlunos;
     }
 }
 

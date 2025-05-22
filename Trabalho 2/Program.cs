@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trabalho_2.Model;
 
 namespace Trabalho_2
 {
@@ -16,7 +17,9 @@ namespace Trabalho_2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            AlunoModel alunoModel = new AlunoModel();
+            MatriculaModel matriculaModel = new MatriculaModel();
+            Application.Run(new Principal(alunoModel, matriculaModel));
         }
     }
 }
