@@ -55,6 +55,7 @@ namespace Trabalho_2.Controller
                     Matricula matricula = _matriculaModel.Get(aluno.Matricula.Id);
                     _matriculaModel.Remove(matricula.Id);
                     _model.Remove(idAluno);
+                    Clear();
                 }
                 else
                 {
@@ -102,6 +103,12 @@ namespace Trabalho_2.Controller
                 MessageBox.Show("Aluno não encontrado.");
             }
         }
+
+        public Aluno GetByIndex(int index)
+        {
+            return _model.GetIndex(index);
+        }
+
         private void Clear()
         {
             _view.Id = "";

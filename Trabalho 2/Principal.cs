@@ -24,7 +24,7 @@ namespace Trabalho_2
         {
             InitializeComponent();
             this.alunoModel = alunoModel;
-
+            this.matriculaModel = matriculaModel;
         }
 
         private void btnCadastroAlunos_Click(object sender, EventArgs e)

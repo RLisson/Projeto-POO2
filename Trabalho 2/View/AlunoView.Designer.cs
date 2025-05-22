@@ -40,6 +40,10 @@
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnConsultaMatricula = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnExibir = new System.Windows.Forms.Button();
+            this.dgvAlunos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlunos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -118,7 +122,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(23, 193);
+            this.btnCadastrar.Location = new System.Drawing.Point(64, 193);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(88, 19);
@@ -129,7 +133,7 @@
             // 
             // btnRemover
             // 
-            this.btnRemover.Location = new System.Drawing.Point(23, 216);
+            this.btnRemover.Location = new System.Drawing.Point(191, 193);
             this.btnRemover.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(88, 19);
@@ -140,18 +144,18 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(23, 239);
+            this.btnConsultar.Location = new System.Drawing.Point(191, 216);
             this.btnConsultar.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(88, 19);
             this.btnConsultar.TabIndex = 10;
-            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.Text = "Consultar ID";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnConsultaMatricula
             // 
-            this.btnConsultaMatricula.Location = new System.Drawing.Point(23, 262);
+            this.btnConsultaMatricula.Location = new System.Drawing.Point(191, 239);
             this.btnConsultaMatricula.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsultaMatricula.Name = "btnConsultaMatricula";
             this.btnConsultaMatricula.Size = new System.Drawing.Size(88, 39);
@@ -160,11 +164,47 @@
             this.btnConsultaMatricula.UseVisualStyleBackColor = true;
             this.btnConsultaMatricula.Click += new System.EventHandler(this.btnConsultaMatricula_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(67, 239);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(88, 39);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Consulta Matricula";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnExibir
+            // 
+            this.btnExibir.Location = new System.Drawing.Point(64, 216);
+            this.btnExibir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExibir.Name = "btnExibir";
+            this.btnExibir.Size = new System.Drawing.Size(88, 19);
+            this.btnExibir.TabIndex = 13;
+            this.btnExibir.Text = "Exibir";
+            this.btnExibir.UseVisualStyleBackColor = true;
+            this.btnExibir.Click += new System.EventHandler(this.btnExibir_Click);
+            // 
+            // dgvAlunos
+            // 
+            this.dgvAlunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAlunos.Location = new System.Drawing.Point(0, 1);
+            this.dgvAlunos.Name = "dgvAlunos";
+            this.dgvAlunos.Size = new System.Drawing.Size(418, 365);
+            this.dgvAlunos.TabIndex = 14;
+            this.dgvAlunos.Visible = false;
+            this.dgvAlunos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlunosCellContentDoubleClick);
+            this.dgvAlunos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlunosCelltDoubleClick);
+            this.dgvAlunos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvAlunosKeyDown);
+            // 
             // AlunoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(419, 366);
+            this.Controls.Add(this.dgvAlunos);
+            this.Controls.Add(this.btnExibir);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnConsultaMatricula);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnRemover);
@@ -179,7 +219,8 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AlunoView";
-            this.Text = "AlunoView";
+            this.Text = "Alunos";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlunos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,5 +240,8 @@
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnConsultaMatricula;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExibir;
+        private System.Windows.Forms.DataGridView dgvAlunos;
     }
 }

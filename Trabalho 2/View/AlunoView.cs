@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trabalho_2.Controller;
 using Trabalho_2.View.Interface;
+using Trabalho2.Entidades;
 
 namespace Trabalho_2.View
 {
@@ -78,6 +79,41 @@ namespace Trabalho_2.View
         private void btnConsultaMatricula_Click(object sender, EventArgs e)
         {
             _controller.GetByMatricula();
+        }
+
+        private void btnExibir_Click(object sender, EventArgs e)
+        {
+            dgvAlunos.DataSource = null;
+            dgvAlunos.Rows.Clear();
+            dgvAlunos.DataSource = _controller.GetAll();
+            dgvAlunos.Columns["Id"].DisplayIndex = 0;
+            dgvAlunos.Visible = true;
+            dgvAlunos.Focus();
+        }
+
+        private void dgvAlunosKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Escape)
+            {
+                dgvAlunos.Visible = false;
+            }
+        }
+
+        private void dgvAlunosCellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvAlunosCelltDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int linha = dgvAlunos.CurrentRow.Index;
+            Aluno aluno = _controller.GetByIndex(linha);
+            Id = aluno.Id.ToString();
+            Nome = aluno.Nome;
+            CPF = aluno.CPF;
+            Matricula = aluno.Matricula.Numero.ToString();
+
+            dgvAlunos.Visible = false;
         }
     }
 }

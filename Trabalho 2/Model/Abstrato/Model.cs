@@ -44,5 +44,10 @@ namespace Trabalho_2.Model.Abstrato
         {
             return cadastro;
         }
+
+        public T GetIndex(int index)
+        {
+            return cadastro[index];
+        }
     }
 }
