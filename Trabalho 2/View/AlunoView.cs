@@ -87,6 +87,8 @@ namespace Trabalho_2.View
             dgvAlunos.Rows.Clear();
             dgvAlunos.DataSource = _controller.GetAll();
             dgvAlunos.Columns["Id"].DisplayIndex = 0;
+            dgvAlunos.Columns["Matricula"].Visible = false;
+            dgvAlunos.Columns["NumeroMatricula"].HeaderText = "Matricula";
             dgvAlunos.Visible = true;
             dgvAlunos.Focus();
         }
@@ -114,6 +116,16 @@ namespace Trabalho_2.View
             Matricula = aluno.Matricula.Numero.ToString();
 
             dgvAlunos.Visible = false;
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            _controller.Update();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            _controller.Clear();
         }
     }
 }

@@ -109,7 +109,25 @@ namespace Trabalho_2.Controller
             return _model.GetIndex(index);
         }
 
-        private void Clear()
+        public void Update()
+        {
+            int idAluno = int.Parse(_view.Id);
+            Aluno aluno = _model.Get(idAluno);
+            if (aluno != null)
+            {
+                aluno.Nome = _view.Nome;
+                aluno.CPF = _view.CPF;
+                aluno.Matricula.Numero = int.Parse(_view.Matricula);
+                _model.Update(idAluno, aluno);
+                Clear();
+            }
+            else
+            {
+                MessageBox.Show("Aluno não encontrado.");
+            }
+        }
+
+        public void Clear()
         {
             _view.Id = "";
             _view.Nome = "";

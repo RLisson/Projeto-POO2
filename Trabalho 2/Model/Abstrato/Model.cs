@@ -20,8 +20,8 @@ namespace Trabalho_2.Model.Abstrato
 
         public void Add(T item)
         {
+            item.Id = idAtual++;
             cadastro.Add(item);
-            idAtual++;
         }
 
         public bool Remove(int id)
@@ -48,6 +48,17 @@ namespace Trabalho_2.Model.Abstrato
         public T GetIndex(int index)
         {
             return cadastro[index];
+        }
+
+        public bool Update(int id, T newItem)
+        {
+            var item = cadastro.FirstOrDefault(i => i.Id == id);
+            if (item != null)
+            {
+                item = newItem;
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -40,9 +40,10 @@
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnConsultaMatricula = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnExibir = new System.Windows.Forms.Button();
             this.dgvAlunos = new System.Windows.Forms.DataGridView();
+            this.btnLimpar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlunos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,15 +165,16 @@
             this.btnConsultaMatricula.UseVisualStyleBackColor = true;
             this.btnConsultaMatricula.Click += new System.EventHandler(this.btnConsultaMatricula_Click);
             // 
-            // button1
+            // btnAtualizar
             // 
-            this.button1.Location = new System.Drawing.Point(67, 239);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 39);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Consulta Matricula";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Location = new System.Drawing.Point(64, 239);
+            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(88, 23);
+            this.btnAtualizar.TabIndex = 12;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnExibir
             // 
@@ -188,14 +190,25 @@
             // dgvAlunos
             // 
             this.dgvAlunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlunos.Location = new System.Drawing.Point(0, 1);
+            this.dgvAlunos.Location = new System.Drawing.Point(-3, -2);
             this.dgvAlunos.Name = "dgvAlunos";
-            this.dgvAlunos.Size = new System.Drawing.Size(418, 365);
+            this.dgvAlunos.Size = new System.Drawing.Size(423, 368);
             this.dgvAlunos.TabIndex = 14;
             this.dgvAlunos.Visible = false;
             this.dgvAlunos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlunosCellContentDoubleClick);
             this.dgvAlunos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlunosCelltDoubleClick);
             this.dgvAlunos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvAlunosKeyDown);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(64, 266);
+            this.btnLimpar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(88, 23);
+            this.btnLimpar.TabIndex = 15;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // AlunoView
             // 
@@ -203,8 +216,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(419, 366);
             this.Controls.Add(this.dgvAlunos);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnExibir);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnConsultaMatricula);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnRemover);
@@ -240,8 +254,9 @@
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnConsultaMatricula;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnExibir;
         private System.Windows.Forms.DataGridView dgvAlunos;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }

@@ -6,7 +6,7 @@ namespace Trabalho2.Entidades
     public class Aluno : Pessoa, IHasId
     {
         public Matricula Matricula { get; set; }
-
+        public int NumeroMatricula { get { return Matricula.Numero; } }
         public Aluno(string nome, string cpf, Matricula matricula) : base(nome, cpf)
         {
             Matricula = matricula;
