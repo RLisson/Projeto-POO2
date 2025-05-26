@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AlunoController.cs" />
+    <Compile Include="Controller\ProfessorController.cs" />
     <Compile Include="Entidades\Abstrato\IHasId.cs" />
     <Compile Include="Entidades\Abstrato\Pessoa.cs" />
     <Compile Include="Entidades\Aluno.cs" />
@@ -74,6 +75,13 @@
       <DependentUpon>AlunoView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Interface\IAlunoView.cs" />
+    <Compile Include="View\Interface\IProfessorView.cs" />
+    <Compile Include="View\ProfessorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ProfessorView.Designer.cs">
+      <DependentUpon>ProfessorView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +96,9 @@
     </Compile>
     <EmbeddedResource Include="View\AlunoView.resx">
       <DependentUpon>AlunoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ProfessorView.resx">
+      <DependentUpon>ProfessorView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
