@@ -54,6 +54,8 @@
     <Compile Include="Entidades\Matricula.cs" />
     <Compile Include="Entidades\Professor.cs" />
     <Compile Include="Entidades\Turma.cs" />
+    <Compile Include="Model\CursoModel.cs" />
+    <Compile Include="Model\ProfessorModel.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
