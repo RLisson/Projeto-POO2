@@ -14,5 +14,17 @@ namespace Trabalho2.Entidades
         public Professor Professor { get; set; }
         public List<Aluno> Alunos { get; set; }
         public int Capacidade { get; set; }
+
+        public Turma()
+        {
+            Alunos = new List<Aluno>();
+        }
+
+        public Turma(string nome, Professor professor, int capacidade)
+        {
+            Nome = nome;
+            Professor = professor;
+            Capacidade = capacidade;
+        }
     }
 }

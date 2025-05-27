@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Controller\AlunoController.cs" />
     <Compile Include="Controller\ProfessorController.cs" />
+    <Compile Include="Controller\TurmaController.cs" />
     <Compile Include="Entidades\Abstrato\IHasId.cs" />
     <Compile Include="Entidades\Abstrato\Pessoa.cs" />
     <Compile Include="Entidades\Aluno.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Entidades\Turma.cs" />
     <Compile Include="Model\CursoModel.cs" />
     <Compile Include="Model\ProfessorModel.cs" />
+    <Compile Include="Model\TurmaModel.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,11 +78,18 @@
     </Compile>
     <Compile Include="View\Interface\IAlunoView.cs" />
     <Compile Include="View\Interface\IProfessorView.cs" />
+    <Compile Include="View\Interface\ITurmaView.cs" />
     <Compile Include="View\ProfessorView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\ProfessorView.Designer.cs">
       <DependentUpon>ProfessorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TurmaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TurmaView.Designer.cs">
+      <DependentUpon>TurmaView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -99,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ProfessorView.resx">
       <DependentUpon>ProfessorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TurmaView.resx">
+      <DependentUpon>TurmaView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
