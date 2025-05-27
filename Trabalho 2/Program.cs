@@ -19,7 +19,8 @@ namespace Trabalho_2
             Application.SetCompatibleTextRenderingDefault(false);
             AlunoModel alunoModel = new AlunoModel();
             MatriculaModel matriculaModel = new MatriculaModel();
-            Application.Run(new Principal(alunoModel, matriculaModel));
+            ProfessorModel professorModel = new ProfessorModel();
+            Application.Run(new Principal(alunoModel, matriculaModel, professorModel));
         }
     }
 }

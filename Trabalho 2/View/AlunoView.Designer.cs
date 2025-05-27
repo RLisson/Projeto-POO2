@@ -50,83 +50,79 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(96, 37);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(128, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.Size = new System.Drawing.Size(18, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(114, 35);
-            this.txtId.Margin = new System.Windows.Forms.Padding(2);
+            this.txtId.Location = new System.Drawing.Point(152, 43);
+            this.txtId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(77, 20);
+            this.txtId.Size = new System.Drawing.Size(101, 22);
             this.txtId.TabIndex = 1;
             this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(114, 68);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNome.Location = new System.Drawing.Point(152, 84);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(165, 20);
+            this.txtNome.Size = new System.Drawing.Size(219, 22);
             this.txtNome.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(76, 71);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(101, 87);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nome";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(85, 101);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(113, 124);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 13);
+            this.label3.Size = new System.Drawing.Size(33, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "CPF";
             // 
             // txtCPF
             // 
-            this.txtCPF.Location = new System.Drawing.Point(114, 101);
-            this.txtCPF.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCPF.Location = new System.Drawing.Point(152, 124);
+            this.txtCPF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(165, 20);
+            this.txtCPF.Size = new System.Drawing.Size(219, 22);
             this.txtCPF.TabIndex = 5;
             // 
             // txtMatricula
             // 
-            this.txtMatricula.Location = new System.Drawing.Point(114, 136);
-            this.txtMatricula.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMatricula.Location = new System.Drawing.Point(152, 167);
+            this.txtMatricula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMatricula.Name = "txtMatricula";
-            this.txtMatricula.Size = new System.Drawing.Size(80, 20);
+            this.txtMatricula.Size = new System.Drawing.Size(105, 22);
             this.txtMatricula.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(64, 138);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(85, 170);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.Size = new System.Drawing.Size(61, 16);
             this.label4.TabIndex = 7;
             this.label4.Text = "Matricula";
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(64, 193);
-            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCadastrar.Location = new System.Drawing.Point(85, 238);
+            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(88, 19);
+            this.btnCadastrar.Size = new System.Drawing.Size(117, 23);
             this.btnCadastrar.TabIndex = 8;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
@@ -134,10 +130,10 @@
             // 
             // btnRemover
             // 
-            this.btnRemover.Location = new System.Drawing.Point(191, 193);
-            this.btnRemover.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemover.Location = new System.Drawing.Point(255, 238);
+            this.btnRemover.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(88, 19);
+            this.btnRemover.Size = new System.Drawing.Size(117, 23);
             this.btnRemover.TabIndex = 9;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
@@ -145,10 +141,10 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(191, 216);
-            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConsultar.Location = new System.Drawing.Point(255, 266);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(88, 19);
+            this.btnConsultar.Size = new System.Drawing.Size(117, 23);
             this.btnConsultar.TabIndex = 10;
             this.btnConsultar.Text = "Consultar ID";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -156,10 +152,10 @@
             // 
             // btnConsultaMatricula
             // 
-            this.btnConsultaMatricula.Location = new System.Drawing.Point(191, 239);
-            this.btnConsultaMatricula.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConsultaMatricula.Location = new System.Drawing.Point(255, 294);
+            this.btnConsultaMatricula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConsultaMatricula.Name = "btnConsultaMatricula";
-            this.btnConsultaMatricula.Size = new System.Drawing.Size(88, 39);
+            this.btnConsultaMatricula.Size = new System.Drawing.Size(117, 48);
             this.btnConsultaMatricula.TabIndex = 11;
             this.btnConsultaMatricula.Text = "Consulta Matricula";
             this.btnConsultaMatricula.UseVisualStyleBackColor = true;
@@ -167,10 +163,10 @@
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(64, 239);
-            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAtualizar.Location = new System.Drawing.Point(85, 294);
+            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(88, 23);
+            this.btnAtualizar.Size = new System.Drawing.Size(117, 28);
             this.btnAtualizar.TabIndex = 12;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = true;
@@ -178,10 +174,10 @@
             // 
             // btnExibir
             // 
-            this.btnExibir.Location = new System.Drawing.Point(64, 216);
-            this.btnExibir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExibir.Location = new System.Drawing.Point(85, 266);
+            this.btnExibir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExibir.Name = "btnExibir";
-            this.btnExibir.Size = new System.Drawing.Size(88, 19);
+            this.btnExibir.Size = new System.Drawing.Size(117, 23);
             this.btnExibir.TabIndex = 13;
             this.btnExibir.Text = "Exibir";
             this.btnExibir.UseVisualStyleBackColor = true;
@@ -190,9 +186,11 @@
             // dgvAlunos
             // 
             this.dgvAlunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlunos.Location = new System.Drawing.Point(-3, -2);
+            this.dgvAlunos.Location = new System.Drawing.Point(153, 71);
+            this.dgvAlunos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAlunos.Name = "dgvAlunos";
-            this.dgvAlunos.Size = new System.Drawing.Size(423, 368);
+            this.dgvAlunos.RowHeadersWidth = 51;
+            this.dgvAlunos.Size = new System.Drawing.Size(564, 453);
             this.dgvAlunos.TabIndex = 14;
             this.dgvAlunos.Visible = false;
             this.dgvAlunos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlunosCellContentDoubleClick);
@@ -201,10 +199,10 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(64, 266);
-            this.btnLimpar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLimpar.Location = new System.Drawing.Point(85, 327);
+            this.btnLimpar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(88, 23);
+            this.btnLimpar.Size = new System.Drawing.Size(117, 28);
             this.btnLimpar.TabIndex = 15;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -212,9 +210,9 @@
             // 
             // AlunoView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 366);
+            this.ClientSize = new System.Drawing.Size(559, 450);
             this.Controls.Add(this.dgvAlunos);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnExibir);
@@ -231,7 +229,7 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AlunoView";
             this.Text = "Alunos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlunos)).EndInit();

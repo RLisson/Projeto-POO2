@@ -39,6 +39,9 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
+            this.dgvProfessor = new System.Windows.Forms.DataGridView();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProfessor)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNome
@@ -91,7 +94,7 @@
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(104, 201);
+            this.btnAdicionar.Location = new System.Drawing.Point(185, 163);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
             this.btnAdicionar.TabIndex = 5;
@@ -101,45 +104,74 @@
             // 
             // btnExibir
             // 
-            this.btnExibir.Location = new System.Drawing.Point(185, 201);
+            this.btnExibir.Location = new System.Drawing.Point(266, 163);
             this.btnExibir.Name = "btnExibir";
             this.btnExibir.Size = new System.Drawing.Size(75, 23);
             this.btnExibir.TabIndex = 6;
             this.btnExibir.Text = "Exibir";
             this.btnExibir.UseVisualStyleBackColor = true;
+            this.btnExibir.Click += new System.EventHandler(this.btnExibir_Click);
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(266, 201);
+            this.btnConsultar.Location = new System.Drawing.Point(347, 163);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(75, 23);
             this.btnConsultar.TabIndex = 7;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnRemover
             // 
-            this.btnRemover.Location = new System.Drawing.Point(347, 201);
+            this.btnRemover.Location = new System.Drawing.Point(185, 192);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(75, 23);
             this.btnRemover.TabIndex = 8;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(428, 201);
+            this.btnSair.Location = new System.Drawing.Point(347, 192);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 23);
             this.btnSair.TabIndex = 9;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // dgvProfessor
+            // 
+            this.dgvProfessor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProfessor.Location = new System.Drawing.Point(428, 245);
+            this.dgvProfessor.Name = "dgvProfessor";
+            this.dgvProfessor.RowHeadersWidth = 51;
+            this.dgvProfessor.RowTemplate.Height = 24;
+            this.dgvProfessor.Size = new System.Drawing.Size(360, 193);
+            this.dgvProfessor.TabIndex = 10;
+            this.dgvProfessor.Visible = false;
+            this.dgvProfessor.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProfessorCellContentDoubleClick);
+            this.dgvProfessor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvProfessorKeyDown);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(266, 192);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpar.TabIndex = 11;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // ProfessorView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLimpar);
+            this.Controls.Add(this.dgvProfessor);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnConsultar);
@@ -153,6 +185,7 @@
             this.Controls.Add(this.txtNome);
             this.Name = "ProfessorView";
             this.Text = "ProfessorView";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProfessor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,5 +204,7 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.DataGridView dgvProfessor;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }

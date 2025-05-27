@@ -29,6 +29,7 @@ namespace Trabalho_2.Controller
             string cpf = _view.CPF;
             Professor professor = new Professor(nome, cpf);
             _model.Add(professor);
+            Clear();
         }
 
         public void Remove()
@@ -65,7 +66,15 @@ namespace Trabalho_2.Controller
             }
         }
 
- 
+        public List<Professor> GetAll()
+        {
+            return _model.GetAll();
+        }
+
+        public Professor GetIndex(int index)
+        {
+            return _model.GetIndex(index);
+        }
 
         public void Clear()
         {

@@ -29,24 +29,51 @@
         private void InitializeComponent()
         {
             this.btnCadastroAlunos = new System.Windows.Forms.Button();
+            this.btnCadastroProfessores = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCadastroAlunos
             // 
-            this.btnCadastroAlunos.Location = new System.Drawing.Point(59, 52);
+            this.btnCadastroAlunos.Location = new System.Drawing.Point(79, 64);
+            this.btnCadastroAlunos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCadastroAlunos.Name = "btnCadastroAlunos";
-            this.btnCadastroAlunos.Size = new System.Drawing.Size(75, 46);
+            this.btnCadastroAlunos.Size = new System.Drawing.Size(100, 57);
             this.btnCadastroAlunos.TabIndex = 0;
             this.btnCadastroAlunos.Text = "Cadastro Alunos";
             this.btnCadastroAlunos.UseVisualStyleBackColor = true;
             this.btnCadastroAlunos.Click += new System.EventHandler(this.btnCadastroAlunos_Click);
             // 
+            // btnCadastroProfessores
+            // 
+            this.btnCadastroProfessores.Location = new System.Drawing.Point(187, 64);
+            this.btnCadastroProfessores.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCadastroProfessores.Name = "btnCadastroProfessores";
+            this.btnCadastroProfessores.Size = new System.Drawing.Size(100, 57);
+            this.btnCadastroProfessores.TabIndex = 1;
+            this.btnCadastroProfessores.Text = "Cadastro Professores";
+            this.btnCadastroProfessores.UseVisualStyleBackColor = true;
+            this.btnCadastroProfessores.Click += new System.EventHandler(this.btnCadastroProfessores_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(295, 64);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 57);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Cadastro Professores";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Principal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCadastroProfessores);
             this.Controls.Add(this.btnCadastroAlunos);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Principal";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -56,6 +83,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnCadastroAlunos;
+        private System.Windows.Forms.Button btnCadastroProfessores;
+        private System.Windows.Forms.Button button1;
     }
 }
 
