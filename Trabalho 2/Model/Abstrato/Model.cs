@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Trabalho_2.Acessa_dados.Interface;
 using Trabalho_2.Entidades.Abstrato;
 
 namespace Trabalho_2.Model.Abstrato
@@ -10,8 +11,8 @@ namespace Trabalho_2.Model.Abstrato
     public abstract class Model<T> where T : IHasId
     {
         protected List<T> cadastro;
-        public int idAtual { get; private set; }
-
+        public int idAtual { get; set; }
+        protected IAcessaDados<T> acessaDados;
         public Model()
         {
             cadastro = new List<T>();
@@ -22,6 +23,12 @@ namespace Trabalho_2.Model.Abstrato
         {
             item.Id = idAtual++;
             cadastro.Add(item);
+            acessaDados.EscritaDados();
+        }
+        
+        public void AddNoId(T item)
+        {
+            cadastro.Add(item);
         }
 
         public bool Remove(int id)
@@ -30,6 +37,7 @@ namespace Trabalho_2.Model.Abstrato
             if (item != null)
             {
                 cadastro.Remove(item);
+                acessaDados.EscritaDados();
                 return true;
             }
             return false;
@@ -56,6 +64,7 @@ namespace Trabalho_2.Model.Abstrato
             if (item != null)
             {
                 item = newItem;
+                acessaDados.EscritaDados();
                 return true;
             }
             return false;

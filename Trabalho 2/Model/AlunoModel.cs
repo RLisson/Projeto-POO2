@@ -11,7 +11,11 @@ namespace Trabalho_2.Model
     public class AlunoModel : Model<Aluno>
     {
 
-        public AlunoModel() { }
+        public AlunoModel() : base()
+        {
+            acessaDados.SetModel(this, "alunos.csv");
+            acessaDados.LeituraDados();
+        }
 
         public Aluno GetByMatricula(int numero)
         {

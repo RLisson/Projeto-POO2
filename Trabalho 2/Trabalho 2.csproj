@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acessa dados\AcessaDadosAluno.cs" />
+    <Compile Include="Acessa dados\AcessaDadosProfessor.cs" />
+    <Compile Include="Acessa dados\Interface\AcessaDados.cs" />
+    <Compile Include="Acessa dados\Interface\IAcessaDados.cs" />
     <Compile Include="Controller\AlunoController.cs" />
     <Compile Include="Controller\ProfessorController.cs" />
     <Compile Include="Controller\TurmaController.cs" />
