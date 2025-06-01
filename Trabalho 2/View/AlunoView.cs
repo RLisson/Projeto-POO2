@@ -87,8 +87,6 @@ namespace Trabalho_2.View
             dgvAlunos.Rows.Clear();
             dgvAlunos.DataSource = _controller.GetAll();
             dgvAlunos.Columns["Id"].DisplayIndex = 0;
-            dgvAlunos.Columns["Matricula"].Visible = false;
-            dgvAlunos.Columns["NumeroMatricula"].HeaderText = "Matricula";
             dgvAlunos.Visible = true;
             dgvAlunos.Focus();
         }

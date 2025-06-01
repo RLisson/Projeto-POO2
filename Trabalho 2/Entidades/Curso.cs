@@ -21,11 +21,9 @@ namespace Trabalho2.Entidades
 
         }
 
-        public Curso(int id, string nome) : this()
+        public Curso(string nome) : this()
         {
-            Id = id;
             Nome = nome;
         }
-
     }
 }

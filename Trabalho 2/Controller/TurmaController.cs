@@ -149,7 +149,6 @@ namespace Trabalho_2.Controller
             if (_model.AdicionarAluno(idTurma, aluno))
             {
                 MessageBox.Show("Aluno adicionado com sucesso.");
-                Clear();
             }
             else
             {

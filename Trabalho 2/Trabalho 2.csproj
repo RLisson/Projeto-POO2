@@ -56,6 +56,7 @@
     <Compile Include="Acessa dados\AcessaDadosTurma.cs" />
     <Compile Include="Acessa dados\Interface\AcessaDados.cs" />
     <Compile Include="Controller\AlunoController.cs" />
+    <Compile Include="Controller\CursoController.cs" />
     <Compile Include="Controller\ProfessorController.cs" />
     <Compile Include="Controller\TurmaController.cs" />
     <Compile Include="Entidades\Abstrato\IHasId.cs" />
@@ -85,7 +86,14 @@
     <Compile Include="View\AlunoView.Designer.cs">
       <DependentUpon>AlunoView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CursoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CursoView.Designer.cs">
+      <DependentUpon>CursoView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Interface\IAlunoView.cs" />
+    <Compile Include="View\Interface\ICursoView.cs" />
     <Compile Include="View\Interface\IProfessorView.cs" />
     <Compile Include="View\Interface\ITurmaView.cs" />
     <Compile Include="View\ProfessorView.cs">
@@ -114,6 +122,9 @@
     </Compile>
     <EmbeddedResource Include="View\AlunoView.resx">
       <DependentUpon>AlunoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CursoView.resx">
+      <DependentUpon>CursoView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ProfessorView.resx">
       <DependentUpon>ProfessorView.cs</DependentUpon>
