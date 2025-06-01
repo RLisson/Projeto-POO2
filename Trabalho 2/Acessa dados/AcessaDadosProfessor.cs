@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,54 +18,43 @@ namespace Trabalho_2.Acessa_dados
 
         public override void EscritaDados()
         {
-            string linha = "";
             try
             {
-                using (StreamWriter sw = new StreamWriter(arquivo))
-                    foreach (Professor professor in model.GetAll())
-                    {
-                        linha = $"{professor.Id};{professor.Nome};{professor.CPF}";
-                        sw.WriteLine(linha);
-                    }
+                var professores = model.GetAll();
+                string json = JsonConvert.SerializeObject(professores, Formatting.Indented);
+                File.WriteAllText(arquivo, json);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erro ao escrever no arquivo!\n" + ex.Message);
+                Console.WriteLine("Erro ao escrever no arquivo JSON!\n" + ex.Message);
             }
         }
 
         public override void LeituraDados()
         {
-            string linha = "";
-            Professor item;
-
             if (ExisteArquivo())
             {
                 try
                 {
-                    int maxId = 0;
-                    StreamReader sr = new StreamReader(arquivo);
-                    char[] delimitador = { ';' };
-                    while ((linha = sr.ReadLine()) != null)
+                    string json = File.ReadAllText(arquivo);
+                    var professores = JsonConvert.DeserializeObject<List<Professor>>(json);
+                    if (professores != null)
                     {
-                        string[] campos = linha.Split(delimitador);
-                        int id = int.Parse(campos[0]);
-                        string nome = campos[1];
-                        string cpf = campos[2];
-
-                        item = new Professor(nome, cpf) { Id = id };
-                        model.AddNoId(item);
-                        if (id > maxId)
+                        int maxId = 0;
+                        foreach (var professor in professores)
                         {
-                            maxId = id;
+                            model.AddNoId(professor);
+                            if (professor.Id > maxId)
+                            {
+                                maxId = professor.Id;
+                            }
                         }
+                        model.idAtual = maxId + 1;
                     }
-                    sr.Close();
-                    model.idAtual = maxId + 1;
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Erro!\n" + ex.Message);
+                    Console.WriteLine("Erro ao ler o arquivo JSON!\n" + ex.Message);
                 }
             }
         }

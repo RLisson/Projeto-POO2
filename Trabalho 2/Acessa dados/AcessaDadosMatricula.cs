@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,61 +14,47 @@ namespace Trabalho_2.Acessa_dados
 {
     public class AcessaDadosMatricula : AcessaDados<Matricula>
     {
-        public AcessaDadosMatricula(Model<Matricula> model, string arquivo) : base(model, arquivo)
-        {
-        }
+        public AcessaDadosMatricula(Model<Matricula> model, string arquivo) : base(model, arquivo) { }
 
         public override void EscritaDados()
         {
-            string linha = "";
             try
             {
-                using (StreamWriter sw = new StreamWriter(arquivo))
-                    foreach (Matricula matricula in model.GetAll())
-                    {
-                        linha = $"{matricula.Id};{matricula.Numero}";
-                        sw.WriteLine(linha);
-                    }
+                var matriculas = model.GetAll();
+                string json = JsonConvert.SerializeObject(matriculas, Formatting.Indented);
+                File.WriteAllText(arquivo, json);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erro ao escrever no arquivo!\n" + ex.Message);
+                Console.WriteLine("Erro ao escrever no arquivo JSON!\n" + ex.Message);
             }
         }
 
         public override void LeituraDados()
         {
-            string linha = "";
-            Matricula item;
-
             if (ExisteArquivo())
             {
                 try
                 {
-                    int maxId = 0;
-                    StreamReader sr = new StreamReader(arquivo);
-                    char[] delimitador = { ';' };
-                    while ((linha = sr.ReadLine()) != null)
+                    string json = File.ReadAllText(arquivo);
+                    var matriculas = JsonConvert.DeserializeObject<List<Matricula>>(json);
+                    if (matriculas != null)
                     {
-                        string[] campos = linha.Split(delimitador);
-
-                        int id = int.Parse(campos[0]);
-                        int numero = int.Parse(campos[1]);
-
-                        item = new Matricula(numero) { Id = id };
-                        model.AddNoId(item);
-                        if (id > maxId)
+                        int maxId = 0;
+                        foreach (var matricula in matriculas)
                         {
-                            maxId = id;
+                            model.AddNoId(matricula);
+                            if (matricula.Id > maxId)
+                            {
+                                maxId = matricula.Id;
+                            }
                         }
-
+                        model.idAtual = maxId + 1;
                     }
-                    sr.Close();
-                    model.idAtual = maxId + 1;
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Erro!\n" + ex.Message);
+                    Console.WriteLine("Erro ao ler o arquivo JSON!\n" + ex.Message);
                 }
             }
         }

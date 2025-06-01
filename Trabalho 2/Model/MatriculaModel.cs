@@ -13,7 +13,7 @@ namespace Trabalho_2.Model
     {
         public MatriculaModel() 
         {
-            acessaDados = new AcessaDadosMatricula(this, "matriculas.csv");
+            acessaDados = new AcessaDadosMatricula(this, "matriculas.json");
             acessaDados.LeituraDados();
         }
 

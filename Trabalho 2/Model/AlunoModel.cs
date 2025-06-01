@@ -14,7 +14,7 @@ namespace Trabalho_2.Model
 
         public AlunoModel(Model<Matricula> matriculaModel) : base()
         {
-            acessaDados = new AcessaDadosAluno(this, "alunos.csv", matriculaModel);
+            acessaDados = new AcessaDadosAluno(this, "alunos.json", matriculaModel);
             acessaDados.LeituraDados();
         }
 

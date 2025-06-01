@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,69 +25,45 @@ namespace Trabalho_2.Acessa_dados
 
         public override void EscritaDados()
         {
-            string linha = "";
             try
             {
-                using (StreamWriter sw = new StreamWriter(arquivo, false))
-                    foreach (Turma turma in model.GetAll())
-                    {
-                        linha = $"{turma.Id};{turma.Nome};{turma.Capacidade};{turma.Professor.Id};";
-                        if (turma.Alunos != null && turma.Alunos.Any())
-                        {
-                            linha += string.Join(";", turma.Alunos.Select(a => a.Id));
-                        }
-                        sw.WriteLine(linha);
-                    }
+                var turmas = model.GetAll();
+                string json = JsonConvert.SerializeObject(turmas, Formatting.Indented);
+                File.WriteAllText(arquivo, json);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erro ao escrever no arquivo!\n" + ex.Message);
+                Console.WriteLine("Erro ao escrever no arquivo JSON!\n" + ex.Message);
             }
         }
 
         public override void LeituraDados()
         {
-            string linha = "";
-            Turma item;
-
             if (ExisteArquivo())
             {
                 try
                 {
-                    int maxId = 0;
-                    StreamReader sr = new StreamReader(arquivo);
-                    char[] delimitador = { ';' };
-                    while ((linha = sr.ReadLine()) != null)
+                    string json = File.ReadAllText(arquivo);
+                    var turmas = JsonConvert.DeserializeObject<List<Turma>>(json);
+                    if (turmas != null)
                     {
-                        string[] campos = linha.Split(delimitador);
-                        int id = int.Parse(campos[0]);
-                        string nome = campos[1];
-                        int capacidade = int.Parse(campos[2]);
-                        int idProfessor = int.Parse(campos[3]);
-
-                        Professor professor = _professorModel.Get(idProfessor);
-                        List<Aluno> alunos = new List<Aluno>();
-                        for (int i = 4; i < campos.Length; i++)
+                        int maxId = 0;
+                        foreach (var turma in turmas)
                         {
-                            int idAluno = int.Parse(campos[i]);
-                            Aluno aluno = _alunoModel.Get(idAluno);
-                            alunos.Add(aluno);
+                            turma.Professor = _professorModel.Get(turma.Professor.Id);
+                            turma.Alunos = turma.Alunos?.ConvertAll(a => _alunoModel.Get(a.Id));
+                            model.AddNoId(turma);
+                            if (turma.Id > maxId)
+                            {
+                                maxId = turma.Id;
+                            }
                         }
-
-                        item = new Turma(nome, professor, capacidade) { Id = id, Alunos = alunos };
-                        model.AddNoId(item);
-                        if (id > maxId)
-                        {
-                            maxId = id;
-                        }
-
+                        model.idAtual = maxId + 1;
                     }
-                    sr.Close();
-                    model.idAtual = maxId + 1;
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Erro!\n" + ex.Message);
+                    Console.WriteLine("Erro ao ler o arquivo JSON!\n" + ex.Message);
                 }
             }
         }

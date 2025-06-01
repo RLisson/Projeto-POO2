@@ -1,30 +1,30 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Xml;
-using Newtonsoft.Json;
 using Trabalho_2.Acessa_dados.Interface;
-using Trabalho_2.Model;
 using Trabalho_2.Model.Abstrato;
 using Trabalho2.Entidades;
 
 namespace Trabalho_2.Acessa_dados
 {
-    public class AcessaDadosAluno : AcessaDados<Aluno>
+    public class AcessaDadosCurso : AcessaDados<Curso>
     {
-        Model<Matricula> _matriculaModel;
+        Model<Turma> _modelTurma;
+        Model<Aluno> _modelAluno;
 
-        public AcessaDadosAluno(Model<Aluno> model, string arquivo, Model<Matricula> matriculaModel) : base(model, arquivo)
+        public AcessaDadosCurso(Model<Curso> model, string arquivo, Model<Turma> modelTurma, Model<Aluno> modelAluno) : base(model, arquivo)
         {
-            _matriculaModel = matriculaModel;
+            _modelTurma = modelTurma;
+            _modelAluno = modelAluno;
         }
 
         public override void EscritaDados()
         {
             try
             {
-                var alunos = model.GetAll();
-                string json = JsonConvert.SerializeObject(alunos, Newtonsoft.Json.Formatting.Indented);
+                var cursos = model.GetAll();
+                string json = JsonConvert.SerializeObject(cursos, Formatting.Indented);
                 File.WriteAllText(arquivo, json);
             }
             catch (Exception ex)
@@ -40,17 +40,18 @@ namespace Trabalho_2.Acessa_dados
                 try
                 {
                     string json = File.ReadAllText(arquivo);
-                    var alunos = JsonConvert.DeserializeObject<List<Aluno>>(json);
-                    if (alunos != null)
+                    var cursos = JsonConvert.DeserializeObject<List<Curso>>(json);
+                    if (cursos != null)
                     {
                         int maxId = 0;
-                        foreach (var aluno in alunos)
+                        foreach (var curso in cursos)
                         {
-                            aluno.Matricula = _matriculaModel.Get(aluno.Matricula.Id);
-                            model.AddNoId(aluno);
-                            if (aluno.Id > maxId)
+                            curso.Turmas = curso.Turmas?.ConvertAll(t => _modelTurma.Get(t.Id));
+                            curso.Alunos = curso.Alunos?.ConvertAll(a => _modelAluno.Get(a.Id));
+                            model.AddNoId(curso);
+                            if (curso.Id > maxId)
                             {
-                                maxId = aluno.Id;
+                                maxId = curso.Id;
                             }
                         }
                         model.idAtual = maxId + 1;

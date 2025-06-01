@@ -13,7 +13,7 @@ namespace Trabalho_2.Model
     {
         public TurmaModel(Model<Professor> professorModel, Model<Aluno> alunoModel)
         {
-            acessaDados = new AcessaDadosTurma(this, "turmas.csv", professorModel, alunoModel);
+            acessaDados = new AcessaDadosTurma(this, "turmas.json", professorModel, alunoModel);
             acessaDados.LeituraDados();
         }
 
