@@ -10,7 +10,10 @@ namespace Trabalho_2.Model
 {
     public class MatriculaModel : Model<Matricula>
     {
-        public MatriculaModel() { }
+        public MatriculaModel() 
+        {
+            acessaDados = new AcessaDadosMatricula(this, "matriculas.txt");
+        }
 
         public bool Conflita(int numeroMatricula)
         {
@@ -23,5 +26,11 @@ namespace Trabalho_2.Model
             }
             return false;
         }
+
+        public Matricula GetByNumero(int numero)
+        {
+            return cadastro.FirstOrDefault(m => m.Numero == numero);
+        }
+
     }
 }

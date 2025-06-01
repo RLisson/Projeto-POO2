@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trabalho_2.Acessa_dados;
+using Trabalho_2.Acessa_dados.Interface;
 using Trabalho_2.Model;
 using Trabalho_2.Model.Abstrato;
 using Trabalho_2.View;

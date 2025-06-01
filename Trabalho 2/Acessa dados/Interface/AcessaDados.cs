@@ -14,18 +14,17 @@ namespace Trabalho_2.Acessa_dados.Interface
         protected Model<T> model;
         protected string arquivo;
 
-        public AcessaDados() { }
+        public AcessaDados(Model<T> model, string arquivo)
+        {
+            this.model = model;
+            this.arquivo = arquivo;
+        }
 
         public bool ExisteArquivo()
         {
             return File.Exists(arquivo);
         }
         
-        public virtual void SetModel(Model<T> model, string arquivo)
-        {
-            this.model = model;
-            this.arquivo = arquivo;
-        }
 
         public abstract void LeituraDados();
         public abstract void EscritaDados();

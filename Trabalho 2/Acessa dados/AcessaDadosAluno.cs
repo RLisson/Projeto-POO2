@@ -10,7 +10,11 @@ namespace Trabalho_2.Acessa_dados
 {
     public class AcessaDadosAluno : AcessaDados<Aluno>
     {
-        public AcessaDadosAluno() { }
+        Model<Matricula> _matriculaModel;
+        public AcessaDadosAluno(Model<Aluno> model, string arquivo, MatriculaModel matriculaModel) : base(model, arquivo)
+        {
+            _matriculaModel = matriculaModel;
+        }
 
         public override void EscritaDados()
         {
@@ -20,7 +24,7 @@ namespace Trabalho_2.Acessa_dados
                 using (StreamWriter sw = new StreamWriter(arquivo))
                     foreach (Aluno aluno in model.GetAll())
                     {
-                        linha = $"{aluno.Id};{aluno.Nome};{aluno.CPF};{aluno.Matricula.Numero}";
+                        linha = $"{aluno.Id};{aluno.Nome};{aluno.CPF};{aluno.Matricula.Id}";
                         sw.WriteLine(linha);
                     }
             }
@@ -50,9 +54,10 @@ namespace Trabalho_2.Acessa_dados
                             int id = int.Parse(campos[0]);
                             string nome = campos[1];
                             string cpf = campos[2];
-                            int numeroMatricula = int.Parse(campos[3]);
+                            int idMatricula = int.Parse(campos[3]);
 
-                            Matricula matricula = new Matricula(numeroMatricula);
+                            Matricula matricula = _matriculaModel.Get(idMatricula);
+
                             item = new Aluno(nome, cpf, matricula) { Id = id };
                             model.AddNoId(item);
                             if (id > maxId)

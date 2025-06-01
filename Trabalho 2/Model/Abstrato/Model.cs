@@ -12,7 +12,7 @@ namespace Trabalho_2.Model.Abstrato
     {
         protected List<T> cadastro;
         public int idAtual { get; set; }
-        protected IAcessaDados<T> acessaDados;
+        protected AcessaDados<T> acessaDados;
         public Model()
         {
             cadastro = new List<T>();

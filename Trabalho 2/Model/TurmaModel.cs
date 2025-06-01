@@ -20,5 +20,10 @@ namespace Trabalho_2.Model
             turma.Alunos.Add(aluno);
             return true;
         }
+
+        public List<Turma> GetByProfessor(int id)
+        {
+            return cadastro.FindAll(t => t.Professor.Id == id);
+        }
     }
 }

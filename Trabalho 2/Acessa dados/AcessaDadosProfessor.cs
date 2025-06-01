@@ -13,8 +13,7 @@ namespace Trabalho_2.Acessa_dados
 {
     public class AcessaDadosProfessor : AcessaDados<Professor>
     {
-
-        public AcessaDadosProfessor() { }
+        public AcessaDadosProfessor(Model<Professor> model, string arquivo) : base(model, arquivo) { }
 
         public override void EscritaDados()
         {

@@ -17,8 +17,8 @@ namespace Trabalho_2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            AlunoModel alunoModel = new AlunoModel();
             MatriculaModel matriculaModel = new MatriculaModel();
+            AlunoModel alunoModel = new AlunoModel(matriculaModel);
             ProfessorModel professorModel = new ProfessorModel();
             Application.Run(new Principal(alunoModel, matriculaModel, professorModel));
         }
