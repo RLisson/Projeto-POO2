@@ -36,7 +36,7 @@
             // btnCadastroAlunos
             // 
             this.btnCadastroAlunos.Location = new System.Drawing.Point(79, 64);
-            this.btnCadastroAlunos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCadastroAlunos.Margin = new System.Windows.Forms.Padding(4);
             this.btnCadastroAlunos.Name = "btnCadastroAlunos";
             this.btnCadastroAlunos.Size = new System.Drawing.Size(100, 57);
             this.btnCadastroAlunos.TabIndex = 0;
@@ -64,6 +64,7 @@
             this.btnCadastroTurmas.TabIndex = 2;
             this.btnCadastroTurmas.Text = "Cadastro Turmas";
             this.btnCadastroTurmas.UseVisualStyleBackColor = true;
+            this.btnCadastroTurmas.Click += new System.EventHandler(this.btnCadastroTurmas_Click);
             // 
             // Principal
             // 
@@ -73,7 +74,7 @@
             this.Controls.Add(this.btnCadastroTurmas);
             this.Controls.Add(this.btnCadastroProfessores);
             this.Controls.Add(this.btnCadastroAlunos);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Principal";
             this.Text = "Form1";
             this.ResumeLayout(false);

@@ -13,7 +13,8 @@ namespace Trabalho_2.Model
     {
         public ProfessorModel() : base()
         {
-            acessaDados = new AcessaDadosProfessor(this, "professores.txt");
+            acessaDados = new AcessaDadosProfessor(this, "professores.csv");
+            acessaDados.LeituraDados();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Trabalho2.Entidades
             Alunos = new List<Aluno>();
         }
 
-        public Turma(string nome, Professor professor, int capacidade)
+        public Turma(string nome, Professor professor, int capacidade) : this()
         {
             Nome = nome;
             Professor = professor;

@@ -26,6 +26,7 @@ namespace Trabalho_2.View
         public string Nome { get => txtNome.Text; set => txtNome.Text = value; }
         public string Professor { get => txtProfessor.Text; set => txtProfessor.Text = value; }
         public string Capacidade { get => txtCapacidade.Text; set => txtCapacidade.Text = value; }
+        public string Aluno { get => txtAluno.Text; set => txtAluno.Text = value; }
 
         public void SetController(TurmaController controller)
         {
@@ -138,6 +139,27 @@ namespace Trabalho_2.View
             {
                 dgvAlunos.Visible = false;
             }
+        }
+
+        private void btnAdicionarAluno_Click(object sender, EventArgs e)
+        {
+            _controller.AddAluno();
+        }
+
+        private void dgvProfessoresKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                dgvProfessor.Visible = false;
+            }
+        }
+
+        private void btnExibirAlunos_Click(object sender, EventArgs e)
+        {
+            ClearDgvAlunos();
+            dgvAlunos.DataSource = _controller.GetAlunosTurma(int.Parse(Id));
+            dgvAlunos.Visible = true;
+            dgvAlunos.Focus();
         }
     }
 }

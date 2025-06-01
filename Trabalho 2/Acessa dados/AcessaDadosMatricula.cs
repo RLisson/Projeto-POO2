@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Trabalho_2.Acessa_dados.Interface;
+using Trabalho_2.Model;
 using Trabalho_2.Model.Abstrato;
 using Trabalho2.Entidades;
 
@@ -36,7 +37,39 @@ namespace Trabalho_2.Acessa_dados
 
         public override void LeituraDados()
         {
-            throw new NotImplementedException();
+            string linha = "";
+            Matricula item;
+
+            if (ExisteArquivo())
+            {
+                try
+                {
+                    int maxId = 0;
+                    StreamReader sr = new StreamReader(arquivo);
+                    char[] delimitador = { ';' };
+                    while ((linha = sr.ReadLine()) != null)
+                    {
+                        string[] campos = linha.Split(delimitador);
+
+                        int id = int.Parse(campos[0]);
+                        int numero = int.Parse(campos[1]);
+
+                        item = new Matricula(numero) { Id = id };
+                        model.AddNoId(item);
+                        if (id > maxId)
+                        {
+                            maxId = id;
+                        }
+
+                    }
+                    sr.Close();
+                    model.idAtual = maxId + 1;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erro!\n" + ex.Message);
+                }
+            }
         }
     }
 }

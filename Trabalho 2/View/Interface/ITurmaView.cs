@@ -14,5 +14,6 @@ namespace Trabalho_2.View.Interface
         string Nome { get; set; }
         string Professor { get; set; }
         string Capacidade { get; set; }
+        string Aluno { get; set; }
     }
 }

@@ -20,7 +20,8 @@ namespace Trabalho_2
             MatriculaModel matriculaModel = new MatriculaModel();
             AlunoModel alunoModel = new AlunoModel(matriculaModel);
             ProfessorModel professorModel = new ProfessorModel();
-            Application.Run(new Principal(alunoModel, matriculaModel, professorModel));
+            TurmaModel turmaModel = new TurmaModel(professorModel, alunoModel);
+            Application.Run(new Principal(alunoModel, matriculaModel, professorModel, turmaModel));
         }
     }
 }

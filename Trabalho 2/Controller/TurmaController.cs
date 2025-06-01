@@ -120,11 +120,42 @@ namespace Trabalho_2.Controller
             return _alunoModel.GetAll();
         }
 
+        public List<Aluno> GetAlunosTurma(int idTurma)
+        {
+            return _model.GetAlunosTurma(idTurma);
+        }
+
         public void Clear()
         {
             _view.Id = "";
             _view.Nome = "";
             _view.Professor = "";
+            _view.Capacidade = "";
+        }
+
+        public void AddAluno()
+        {
+            int idTurma = int.Parse(_view.Id);
+            Turma turma = _model.Get(idTurma);
+
+            int idAluno = int.Parse(_view.Aluno);
+            Aluno aluno = _alunoModel.Get(idAluno);
+            if (aluno == null)
+            {
+                MessageBox.Show("Aluno não encontrado.");
+                return;
+            }
+
+            if (_model.AdicionarAluno(idTurma, aluno))
+            {
+                MessageBox.Show("Aluno adicionado com sucesso.");
+                Clear();
+            }
+            else
+            {
+                MessageBox.Show("Capacidade da turma excedida.");
+            }
+            _view.Aluno = "";
         }
     }
 }

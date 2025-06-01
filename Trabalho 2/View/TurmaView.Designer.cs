@@ -48,6 +48,7 @@
             this.txtAluno = new System.Windows.Forms.TextBox();
             this.btnSelecionarAluno = new System.Windows.Forms.Button();
             this.dgvAlunos = new System.Windows.Forms.DataGridView();
+            this.btnExibirAlunos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfessor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurmas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlunos)).BeginInit();
@@ -113,6 +114,7 @@
             this.dgvProfessor.TabIndex = 6;
             this.dgvProfessor.Visible = false;
             this.dgvProfessor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProfessoresCellDoubleClick);
+            this.dgvProfessor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvProfessoresKeyDown);
             // 
             // btnSelecionar
             // 
@@ -174,7 +176,7 @@
             // 
             this.btnConsultarPorProfessor.Location = new System.Drawing.Point(96, 311);
             this.btnConsultarPorProfessor.Name = "btnConsultarPorProfessor";
-            this.btnConsultarPorProfessor.Size = new System.Drawing.Size(119, 40);
+            this.btnConsultarPorProfessor.Size = new System.Drawing.Size(119, 47);
             this.btnConsultarPorProfessor.TabIndex = 13;
             this.btnConsultarPorProfessor.Text = "Consultar por Professor";
             this.btnConsultarPorProfessor.UseVisualStyleBackColor = true;
@@ -182,7 +184,7 @@
             // 
             // btnRemoverTurma
             // 
-            this.btnRemoverTurma.Location = new System.Drawing.Point(96, 357);
+            this.btnRemoverTurma.Location = new System.Drawing.Point(96, 364);
             this.btnRemoverTurma.Name = "btnRemoverTurma";
             this.btnRemoverTurma.Size = new System.Drawing.Size(119, 23);
             this.btnRemoverTurma.TabIndex = 14;
@@ -211,6 +213,7 @@
             this.btnAdicionarAluno.TabIndex = 16;
             this.btnAdicionarAluno.Text = "Adicionar aluno";
             this.btnAdicionarAluno.UseVisualStyleBackColor = true;
+            this.btnAdicionarAluno.Click += new System.EventHandler(this.btnAdicionarAluno_Click);
             // 
             // txtAluno
             // 
@@ -243,11 +246,22 @@
             this.dgvAlunos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlunosCellDoubleClick);
             this.dgvAlunos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvAlunosKeyDown);
             // 
+            // btnExibirAlunos
+            // 
+            this.btnExibirAlunos.Location = new System.Drawing.Point(330, 357);
+            this.btnExibirAlunos.Name = "btnExibirAlunos";
+            this.btnExibirAlunos.Size = new System.Drawing.Size(119, 31);
+            this.btnExibirAlunos.TabIndex = 20;
+            this.btnExibirAlunos.Text = "Exibir alunos";
+            this.btnExibirAlunos.UseVisualStyleBackColor = true;
+            this.btnExibirAlunos.Click += new System.EventHandler(this.btnExibirAlunos_Click);
+            // 
             // TurmaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExibirAlunos);
             this.Controls.Add(this.dgvAlunos);
             this.Controls.Add(this.btnSelecionarAluno);
             this.Controls.Add(this.txtAluno);
@@ -301,5 +315,6 @@
         private System.Windows.Forms.TextBox txtAluno;
         private System.Windows.Forms.Button btnSelecionarAluno;
         private System.Windows.Forms.DataGridView dgvAlunos;
+        private System.Windows.Forms.Button btnExibirAlunos;
     }
 }

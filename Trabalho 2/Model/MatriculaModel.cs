@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Trabalho_2.Acessa_dados;
 using Trabalho_2.Model.Abstrato;
 using Trabalho2.Entidades;
 
@@ -12,7 +13,8 @@ namespace Trabalho_2.Model
     {
         public MatriculaModel() 
         {
-            acessaDados = new AcessaDadosMatricula(this, "matriculas.txt");
+            acessaDados = new AcessaDadosMatricula(this, "matriculas.csv");
+            acessaDados.LeituraDados();
         }
 
         public bool Conflita(int numeroMatricula)
@@ -26,11 +28,5 @@ namespace Trabalho_2.Model
             }
             return false;
         }
-
-        public Matricula GetByNumero(int numero)
-        {
-            return cadastro.FirstOrDefault(m => m.Numero == numero);
-        }
-
     }
 }

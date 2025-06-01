@@ -11,7 +11,7 @@ namespace Trabalho_2.Acessa_dados
     public class AcessaDadosAluno : AcessaDados<Aluno>
     {
         Model<Matricula> _matriculaModel;
-        public AcessaDadosAluno(Model<Aluno> model, string arquivo, MatriculaModel matriculaModel) : base(model, arquivo)
+        public AcessaDadosAluno(Model<Aluno> model, string arquivo, Model<Matricula> matriculaModel) : base(model, arquivo)
         {
             _matriculaModel = matriculaModel;
         }
