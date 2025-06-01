@@ -31,6 +31,7 @@
             this.btnCadastroAlunos = new System.Windows.Forms.Button();
             this.btnCadastroProfessores = new System.Windows.Forms.Button();
             this.btnCadastroTurmas = new System.Windows.Forms.Button();
+            this.btnCadastroCursos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCadastroAlunos
@@ -66,11 +67,23 @@
             this.btnCadastroTurmas.UseVisualStyleBackColor = true;
             this.btnCadastroTurmas.Click += new System.EventHandler(this.btnCadastroTurmas_Click);
             // 
+            // btnCadastroCursos
+            // 
+            this.btnCadastroCursos.Location = new System.Drawing.Point(403, 64);
+            this.btnCadastroCursos.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCadastroCursos.Name = "btnCadastroCursos";
+            this.btnCadastroCursos.Size = new System.Drawing.Size(100, 57);
+            this.btnCadastroCursos.TabIndex = 3;
+            this.btnCadastroCursos.Text = "Cadastro Cursos";
+            this.btnCadastroCursos.UseVisualStyleBackColor = true;
+            this.btnCadastroCursos.Click += new System.EventHandler(this.btnCadastroCursos_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnCadastroCursos);
             this.Controls.Add(this.btnCadastroTurmas);
             this.Controls.Add(this.btnCadastroProfessores);
             this.Controls.Add(this.btnCadastroAlunos);
@@ -86,6 +99,7 @@
         private System.Windows.Forms.Button btnCadastroAlunos;
         private System.Windows.Forms.Button btnCadastroProfessores;
         private System.Windows.Forms.Button btnCadastroTurmas;
+        private System.Windows.Forms.Button btnCadastroCursos;
     }
 }
 

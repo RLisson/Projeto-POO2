@@ -145,11 +145,11 @@
             // dgvProfessor
             // 
             this.dgvProfessor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProfessor.Location = new System.Drawing.Point(428, 245);
+            this.dgvProfessor.Location = new System.Drawing.Point(12, 12);
             this.dgvProfessor.Name = "dgvProfessor";
             this.dgvProfessor.RowHeadersWidth = 51;
             this.dgvProfessor.RowTemplate.Height = 24;
-            this.dgvProfessor.Size = new System.Drawing.Size(360, 193);
+            this.dgvProfessor.Size = new System.Drawing.Size(522, 353);
             this.dgvProfessor.TabIndex = 10;
             this.dgvProfessor.Visible = false;
             this.dgvProfessor.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProfessorCellContentDoubleClick);
@@ -169,9 +169,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnLimpar);
+            this.ClientSize = new System.Drawing.Size(546, 378);
             this.Controls.Add(this.dgvProfessor);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnConsultar);
@@ -184,7 +184,7 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtNome);
             this.Name = "ProfessorView";
-            this.Text = "ProfessorView";
+            this.Text = "Cadastro Professores";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfessor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

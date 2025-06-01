@@ -21,7 +21,8 @@ namespace Trabalho_2
             AlunoModel alunoModel = new AlunoModel(matriculaModel);
             ProfessorModel professorModel = new ProfessorModel();
             TurmaModel turmaModel = new TurmaModel(professorModel, alunoModel);
-            Application.Run(new Principal(alunoModel, matriculaModel, professorModel, turmaModel));
+            CursoModel cursoModel = new CursoModel(turmaModel, alunoModel);
+            Application.Run(new Principal(alunoModel, matriculaModel, professorModel, turmaModel, cursoModel));
         }
     }
 }

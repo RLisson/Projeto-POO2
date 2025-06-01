@@ -45,6 +45,8 @@
             this.dgvCursos = new System.Windows.Forms.DataGridView();
             this.dgvAlunos = new System.Windows.Forms.DataGridView();
             this.dgvTurmas = new System.Windows.Forms.DataGridView();
+            this.btnExibirTurmas = new System.Windows.Forms.Button();
+            this.btnExibirAlunos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlunos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurmas)).BeginInit();
@@ -181,11 +183,11 @@
             // dgvCursos
             // 
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCursos.Location = new System.Drawing.Point(536, 288);
+            this.dgvCursos.Location = new System.Drawing.Point(15, 3);
             this.dgvCursos.Name = "dgvCursos";
             this.dgvCursos.RowHeadersWidth = 51;
             this.dgvCursos.RowTemplate.Height = 24;
-            this.dgvCursos.Size = new System.Drawing.Size(240, 150);
+            this.dgvCursos.Size = new System.Drawing.Size(549, 435);
             this.dgvCursos.TabIndex = 14;
             this.dgvCursos.Visible = false;
             this.dgvCursos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCursosCellDoubleClickl);
@@ -194,11 +196,11 @@
             // dgvAlunos
             // 
             this.dgvAlunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlunos.Location = new System.Drawing.Point(536, 132);
+            this.dgvAlunos.Location = new System.Drawing.Point(15, 8);
             this.dgvAlunos.Name = "dgvAlunos";
             this.dgvAlunos.RowHeadersWidth = 51;
             this.dgvAlunos.RowTemplate.Height = 24;
-            this.dgvAlunos.Size = new System.Drawing.Size(240, 150);
+            this.dgvAlunos.Size = new System.Drawing.Size(549, 430);
             this.dgvAlunos.TabIndex = 15;
             this.dgvAlunos.Visible = false;
             this.dgvAlunos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlunos_CellDoubleClick);
@@ -207,24 +209,47 @@
             // dgvTurmas
             // 
             this.dgvTurmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTurmas.Location = new System.Drawing.Point(277, 293);
+            this.dgvTurmas.Location = new System.Drawing.Point(12, 8);
             this.dgvTurmas.Name = "dgvTurmas";
             this.dgvTurmas.RowHeadersWidth = 51;
             this.dgvTurmas.RowTemplate.Height = 24;
-            this.dgvTurmas.Size = new System.Drawing.Size(240, 150);
+            this.dgvTurmas.Size = new System.Drawing.Size(549, 430);
             this.dgvTurmas.TabIndex = 16;
             this.dgvTurmas.Visible = false;
+            this.dgvTurmas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurmas_CellContentClick);
             this.dgvTurmas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurmas_CellDoubleClick);
             this.dgvTurmas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvTurmas_KeyDown);
+            // 
+            // btnExibirTurmas
+            // 
+            this.btnExibirTurmas.Location = new System.Drawing.Point(143, 288);
+            this.btnExibirTurmas.Name = "btnExibirTurmas";
+            this.btnExibirTurmas.Size = new System.Drawing.Size(159, 23);
+            this.btnExibirTurmas.TabIndex = 17;
+            this.btnExibirTurmas.Text = "Exibir turmas curso";
+            this.btnExibirTurmas.UseVisualStyleBackColor = true;
+            this.btnExibirTurmas.Click += new System.EventHandler(this.btnExibirTurmas_Click);
+            // 
+            // btnExibirAlunos
+            // 
+            this.btnExibirAlunos.Location = new System.Drawing.Point(327, 288);
+            this.btnExibirAlunos.Name = "btnExibirAlunos";
+            this.btnExibirAlunos.Size = new System.Drawing.Size(159, 23);
+            this.btnExibirAlunos.TabIndex = 18;
+            this.btnExibirAlunos.Text = "Exibir alunos curso";
+            this.btnExibirAlunos.UseVisualStyleBackColor = true;
+            this.btnExibirAlunos.Click += new System.EventHandler(this.btnExibirAlunos_Click);
             // 
             // CursoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvTurmas);
-            this.Controls.Add(this.dgvAlunos);
+            this.ClientSize = new System.Drawing.Size(576, 450);
             this.Controls.Add(this.dgvCursos);
+            this.Controls.Add(this.dgvAlunos);
+            this.Controls.Add(this.dgvTurmas);
+            this.Controls.Add(this.btnExibirAlunos);
+            this.Controls.Add(this.btnExibirTurmas);
             this.Controls.Add(this.btnAdicionarAluno);
             this.Controls.Add(this.btnSelecionarAluno);
             this.Controls.Add(this.txtAluno);
@@ -240,7 +265,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CursoView";
-            this.Text = "CursoView";
+            this.Text = "Cadastro Cursos";
+            this.Load += new System.EventHandler(this.CursoView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlunos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurmas)).EndInit();
@@ -268,5 +294,7 @@
         private System.Windows.Forms.DataGridView dgvCursos;
         private System.Windows.Forms.DataGridView dgvAlunos;
         private System.Windows.Forms.DataGridView dgvTurmas;
+        private System.Windows.Forms.Button btnExibirTurmas;
+        private System.Windows.Forms.Button btnExibirAlunos;
     }
 }

@@ -186,11 +186,11 @@
             // dgvAlunos
             // 
             this.dgvAlunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlunos.Location = new System.Drawing.Point(153, 71);
-            this.dgvAlunos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvAlunos.Location = new System.Drawing.Point(7, 4);
+            this.dgvAlunos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAlunos.Name = "dgvAlunos";
             this.dgvAlunos.RowHeadersWidth = 51;
-            this.dgvAlunos.Size = new System.Drawing.Size(564, 453);
+            this.dgvAlunos.Size = new System.Drawing.Size(539, 433);
             this.dgvAlunos.TabIndex = 14;
             this.dgvAlunos.Visible = false;
             this.dgvAlunos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlunosCellContentDoubleClick);
@@ -231,7 +231,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AlunoView";
-            this.Text = "Alunos";
+            this.Text = "Cadastro Alunos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlunos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

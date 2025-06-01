@@ -106,11 +106,11 @@
             // dgvProfessor
             // 
             this.dgvProfessor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProfessor.Location = new System.Drawing.Point(548, 26);
+            this.dgvProfessor.Location = new System.Drawing.Point(12, 8);
             this.dgvProfessor.Name = "dgvProfessor";
             this.dgvProfessor.RowHeadersWidth = 51;
             this.dgvProfessor.RowTemplate.Height = 24;
-            this.dgvProfessor.Size = new System.Drawing.Size(240, 150);
+            this.dgvProfessor.Size = new System.Drawing.Size(593, 435);
             this.dgvProfessor.TabIndex = 6;
             this.dgvProfessor.Visible = false;
             this.dgvProfessor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProfessoresCellDoubleClick);
@@ -195,13 +195,14 @@
             // dgvTurmas
             // 
             this.dgvTurmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTurmas.Location = new System.Drawing.Point(548, 182);
+            this.dgvTurmas.Location = new System.Drawing.Point(12, 3);
             this.dgvTurmas.Name = "dgvTurmas";
             this.dgvTurmas.RowHeadersWidth = 51;
             this.dgvTurmas.RowTemplate.Height = 24;
-            this.dgvTurmas.Size = new System.Drawing.Size(240, 150);
+            this.dgvTurmas.Size = new System.Drawing.Size(593, 435);
             this.dgvTurmas.TabIndex = 15;
             this.dgvTurmas.Visible = false;
+            this.dgvTurmas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurmas_CellContentClick);
             this.dgvTurmas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTurmasCellDoubleClick);
             this.dgvTurmas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvTurmasKeyDown);
             // 
@@ -236,11 +237,11 @@
             // dgvAlunos
             // 
             this.dgvAlunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlunos.Location = new System.Drawing.Point(302, 29);
+            this.dgvAlunos.Location = new System.Drawing.Point(12, 12);
             this.dgvAlunos.Name = "dgvAlunos";
             this.dgvAlunos.RowHeadersWidth = 51;
             this.dgvAlunos.RowTemplate.Height = 24;
-            this.dgvAlunos.Size = new System.Drawing.Size(240, 150);
+            this.dgvAlunos.Size = new System.Drawing.Size(593, 431);
             this.dgvAlunos.TabIndex = 19;
             this.dgvAlunos.Visible = false;
             this.dgvAlunos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlunosCellDoubleClick);
@@ -260,13 +261,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnExibirAlunos);
+            this.ClientSize = new System.Drawing.Size(623, 450);
+            this.Controls.Add(this.dgvTurmas);
             this.Controls.Add(this.dgvAlunos);
+            this.Controls.Add(this.dgvProfessor);
+            this.Controls.Add(this.btnExibirAlunos);
             this.Controls.Add(this.btnSelecionarAluno);
             this.Controls.Add(this.txtAluno);
             this.Controls.Add(this.btnAdicionarAluno);
-            this.Controls.Add(this.dgvTurmas);
             this.Controls.Add(this.btnRemoverTurma);
             this.Controls.Add(this.btnConsultarPorProfessor);
             this.Controls.Add(this.btnConsultar);
@@ -275,7 +277,6 @@
             this.Controls.Add(this.txtCapacidade);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSelecionar);
-            this.Controls.Add(this.dgvProfessor);
             this.Controls.Add(this.txtProfessor);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtId);
@@ -283,7 +284,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TurmaView";
-            this.Text = "TurmaView";
+            this.Text = "Cadastro turmas";
             this.Load += new System.EventHandler(this.TurmaView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfessor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurmas)).EndInit();

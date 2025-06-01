@@ -20,19 +20,22 @@ namespace Trabalho_2
         AlunoView alunoView;
         ProfessorView professorView;
         TurmaView turmaView;
+        CursoView cursoView;
 
         AlunoModel alunoModel;
         MatriculaModel matriculaModel;
         ProfessorModel professorModel;
         TurmaModel turmaModel;
+        CursoModel cursoModel;
 
-        public Principal(AlunoModel alunoModel, MatriculaModel matriculaModel, ProfessorModel professorModel, TurmaModel turmaModel)
+        public Principal(AlunoModel alunoModel, MatriculaModel matriculaModel, ProfessorModel professorModel, TurmaModel turmaModel, CursoModel cursoModel)
         {
             InitializeComponent();
             this.alunoModel = alunoModel;
             this.matriculaModel = matriculaModel;
             this.professorModel = professorModel;
             this.turmaModel = turmaModel;
+            this.cursoModel = cursoModel;
         }
 
         private void btnCadastroAlunos_Click(object sender, EventArgs e)
@@ -54,6 +57,13 @@ namespace Trabalho_2
             turmaView = new TurmaView();
             TurmaController turmaController = new TurmaController(turmaModel, turmaView, professorModel, alunoModel);
             turmaView.Show();
+        }
+
+        private void btnCadastroCursos_Click(object sender, EventArgs e)
+        {
+            cursoView = new CursoView();
+            CursoController cursoController = new CursoController(cursoModel, cursoView, turmaModel, alunoModel);
+            cursoView.Show();
         }
     }
 }

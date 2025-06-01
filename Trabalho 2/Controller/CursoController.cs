@@ -109,6 +109,16 @@ namespace Trabalho_2.Controller
             }
         }
 
+        public List<Turma> GetTurmasCurso()
+        {
+            return _model.GetTurmasCurso(int.Parse(_view.Id));
+        }
+
+        public List<Aluno> GetAlunosCurso()
+        {
+            return _model.GetAlunosCurso(int.Parse(_view.Id));
+        }
+
         public void Clear()
         {
             _view.Id = "";

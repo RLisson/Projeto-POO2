@@ -25,6 +25,7 @@ namespace Trabalho_2.Model
                 return false;
             }
             curso.Alunos.Add(aluno);
+            acessaDados.EscritaDados();
             return true;
         }
 
@@ -36,7 +37,21 @@ namespace Trabalho_2.Model
                 return false;
             }
             curso.Turmas.Add(turma);
+            acessaDados.EscritaDados();
             return true;
+        }
+
+        public List<Aluno> GetAlunosCurso(int id)
+        {
+            Curso curso = Get(id);
+            return curso.Alunos;
+        }
+
+        public List<Turma> GetTurmasCurso(int id)
+        {
+            Curso curso = Get(id);
+            return curso.Turmas;
+
         }
     }
 }

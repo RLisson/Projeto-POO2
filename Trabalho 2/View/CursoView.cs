@@ -39,7 +39,7 @@ namespace Trabalho_2.View
 
         private void btnExibir_Click(object sender, EventArgs e)
         {
-            SetDgvData(dgvAlunos, _controller.GetAllAluno());
+            SetDgvData(dgvCursos, _controller.GetAll());
         }
 
         private void CloseDgv(DataGridView dgv, KeyEventArgs e)
@@ -52,7 +52,7 @@ namespace Trabalho_2.View
 
         private void dgvCursosCellDoubleClickl(object sender, DataGridViewCellEventArgs e)
         {
-            Curso curso = _controller.GetIndex(dgvAlunos.CurrentRow.Index);
+            Curso curso = _controller.GetIndex(dgvCursos.CurrentRow.Index);
             Id = curso.Id.ToString();
             Nome = curso.Nome;
             dgvCursos.Visible = false;
@@ -76,14 +76,13 @@ namespace Trabalho_2.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SetDgvData(dgvAlunos, _controller.GetAllAluno());
+            SetDgvData(dgvTurmas, _controller.GetAllTurma());
         }
 
         private void dgvTurmas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Turma turma = _controller.GetTurmaIndex(dgvTurmas.CurrentRow.Index);
-            Id = turma.Id.ToString();
-            Nome = turma.Nome;
+            Turma = turma.Id.ToString();
             dgvTurmas.Visible = false;
         }
 
@@ -131,6 +130,26 @@ namespace Trabalho_2.View
         private void btnAdicionarAluno_Click(object sender, EventArgs e)
         {
             _controller.AddAluno();
+        }
+
+        private void CursoView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExibirTurmas_Click(object sender, EventArgs e)
+        {
+            SetDgvData(dgvTurmas, _controller.GetTurmasCurso());
+        }
+
+        private void btnExibirAlunos_Click(object sender, EventArgs e)
+        {
+            SetDgvData(dgvAlunos, _controller.GetAlunosCurso());
+        }
+
+        private void dgvTurmas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

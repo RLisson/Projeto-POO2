@@ -161,5 +161,10 @@ namespace Trabalho_2.View
             dgvAlunos.Visible = true;
             dgvAlunos.Focus();
         }
+
+        private void dgvTurmas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
