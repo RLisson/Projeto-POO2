@@ -14,10 +14,28 @@ namespace Trabalho_2.Acessa_dados
 {
     public class AcessaDadosTurma : AcessaDados<Turma>
     {
+        private static AcessaDadosTurma instance;
+        private static readonly object lockObject = new object();
+
         Model<Professor> _professorModel;
         Model<Aluno> _alunoModel;
 
-        public AcessaDadosTurma(Model<Turma> model, string arquivo, Model<Professor> professorModel, Model<Aluno> alunoModel) : base(model, arquivo)
+        public static AcessaDadosTurma Instance(Model<Turma> model, string arquivo, Model<Professor> professorModel, Model<Aluno> alunoModel)
+        {
+            if (instance == null)
+            {
+                lock (lockObject)
+                {
+                    if (instance == null)
+                    {
+                        instance = new AcessaDadosTurma(model, arquivo, professorModel, alunoModel);
+                    }
+                }
+            }
+            return instance;
+        }
+
+        private AcessaDadosTurma(Model<Turma> model, string arquivo, Model<Professor> professorModel, Model<Aluno> alunoModel) : base(model, arquivo)
         {
             _professorModel = professorModel;
             _alunoModel = alunoModel;

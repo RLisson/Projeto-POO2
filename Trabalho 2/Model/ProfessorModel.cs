@@ -13,7 +13,7 @@ namespace Trabalho_2.Model
     {
         public ProfessorModel() : base()
         {
-            acessaDados = new AcessaDadosProfessor(this, "professores.json");
+            acessaDados = AcessaDadosProfessor.Instance(this, "professores.json");
             acessaDados.LeituraDados();
         }
     }

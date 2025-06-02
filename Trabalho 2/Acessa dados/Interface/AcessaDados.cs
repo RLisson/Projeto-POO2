@@ -14,7 +14,7 @@ namespace Trabalho_2.Acessa_dados.Interface
         protected Model<T> model;
         protected string arquivo;
 
-        public AcessaDados(Model<T> model, string arquivo)
+        protected AcessaDados(Model<T> model, string arquivo)
         {
             this.model = model;
             this.arquivo = arquivo;

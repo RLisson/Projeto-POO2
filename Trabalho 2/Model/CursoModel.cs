@@ -13,7 +13,7 @@ namespace Trabalho_2.Model
     {
         public CursoModel(Model<Turma> turmaModel, Model<Aluno> alunoModel) : base()
         {
-            acessaDados = new AcessaDadosCurso(this, "cursos.json", turmaModel, alunoModel);
+            acessaDados = AcessaDadosCurso.Instance(this, "cursos.json", turmaModel, alunoModel);
             acessaDados.LeituraDados();
         }
 

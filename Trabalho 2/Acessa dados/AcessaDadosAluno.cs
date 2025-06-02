@@ -10,11 +10,29 @@ using Trabalho2.Entidades;
 
 namespace Trabalho_2.Acessa_dados
 {
-    public class AcessaDadosAluno : AcessaDados<Aluno>
+    public sealed class AcessaDadosAluno : AcessaDados<Aluno>
     {
+        private static AcessaDadosAluno instance;
+        private static readonly object lockObject = new object();
+
         Model<Matricula> _matriculaModel;
 
-        public AcessaDadosAluno(Model<Aluno> model, string arquivo, Model<Matricula> matriculaModel) : base(model, arquivo)
+        public static AcessaDadosAluno Instance(Model<Aluno> model, string arquivo, Model<Matricula> matriculaModel)
+        {
+            if (instance == null)
+            {
+                lock (lockObject)
+                {
+                    if (instance == null)
+                    {
+                        instance = new AcessaDadosAluno(model, arquivo, matriculaModel);
+                    }
+                }
+            }
+            return instance;
+        }
+
+        private AcessaDadosAluno(Model<Aluno> model, string arquivo, Model<Matricula> matriculaModel) : base(model, arquivo)
         {
             _matriculaModel = matriculaModel;
         }
