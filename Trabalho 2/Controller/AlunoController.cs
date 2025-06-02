@@ -8,6 +8,8 @@ using Trabalho_2.Acessa_dados;
 using Trabalho_2.Acessa_dados.Interface;
 using Trabalho_2.Model;
 using Trabalho_2.Model.Abstrato;
+using Trabalho_2.Strategy;
+using Trabalho_2.Strategy.Interface;
 using Trabalho_2.View;
 using Trabalho_2.View.Interface;
 using Trabalho2.Entidades;
@@ -19,6 +21,7 @@ namespace Trabalho_2.Controller
         AlunoModel _model;
         AlunoView _view;
         MatriculaModel _matriculaModel;
+        ValidacaoContext<Aluno> _validacao;
 
         public AlunoController(AlunoModel model, AlunoView view, MatriculaModel matriculaModel)
         {
@@ -26,6 +29,7 @@ namespace Trabalho_2.Controller
             _view = view;
             _view.SetController(this);
             _matriculaModel = matriculaModel;
+            _validacao = new ValidacaoContext<Aluno>(new ValidacaoAluno());
         }
 
         public void Add()
@@ -39,6 +43,11 @@ namespace Trabalho_2.Controller
             Matricula matricula = new Matricula(numeroMatricula);
             _matriculaModel.Add(matricula);
             Aluno aluno = new Aluno(_view.Nome, _view.CPF, matricula);
+            if (_validacao.ExecutarValidacao(aluno) == false)
+            {
+                MessageBox.Show("Valores inválidos. Tente novamente");
+                return;
+            }
             _model.Add(aluno);
             Clear();
         }
@@ -120,6 +129,11 @@ namespace Trabalho_2.Controller
                 aluno.Nome = _view.Nome;
                 aluno.CPF = _view.CPF;
                 aluno.Matricula.Numero = int.Parse(_view.Matricula);
+                if (_validacao.ExecutarValidacao(aluno) == false)
+                {
+                    MessageBox.Show("Valores inválidos. Tente novamente");
+                    return;
+                }
                 _model.Update(idAluno, aluno);
                 Clear();
             }

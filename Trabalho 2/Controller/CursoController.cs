@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trabalho_2.Model;
+using Trabalho_2.Strategy;
 using Trabalho_2.View.Interface;
 using Trabalho2.Entidades;
 
@@ -16,6 +17,7 @@ namespace Trabalho_2.Controller
         ICursoView _view;
         TurmaModel _turmaModel;
         AlunoModel _alunoModel;
+        ValidacaoContext<Curso> _validacao;
 
         public CursoController(CursoModel model, ICursoView view, TurmaModel turmaModel, AlunoModel alunoModel)
         {
@@ -24,6 +26,7 @@ namespace Trabalho_2.Controller
             view.SetController(this);
             _turmaModel = turmaModel;
             _alunoModel = alunoModel;
+            _validacao = new ValidacaoContext<Curso>(new ValidacaoCurso());
         }
 
         public void Add()
@@ -31,6 +34,11 @@ namespace Trabalho_2.Controller
             string nome = _view.Nome;
 
             Curso curso = new Curso(nome);
+            if (_validacao.ExecutarValidacao(curso) == false)
+            {
+                MessageBox.Show("Valores inválidos. Tente novamente");
+                return;
+            }
             _model.Add(curso);
         }
 

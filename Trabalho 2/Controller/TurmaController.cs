@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trabalho_2.Acessa_dados;
 using Trabalho_2.Model;
+using Trabalho_2.Strategy;
 using Trabalho_2.View;
 using Trabalho_2.View.Interface;
 using Trabalho2.Entidades;
@@ -18,7 +19,7 @@ namespace Trabalho_2.Controller
         ProfessorModel _professorModel;
         ITurmaView _view;
         AlunoModel _alunoModel;
-        AcessaDadosTurma _acessaDados;
+        ValidacaoContext<Turma> _validacao;
 
         public TurmaController(TurmaModel model, ITurmaView view, ProfessorModel professorModel, AlunoModel alunoModel)
         {
@@ -27,8 +28,7 @@ namespace Trabalho_2.Controller
             _view.SetController(this);
             _professorModel = professorModel;
             _alunoModel = alunoModel;
-            _acessaDados = new AcessaDadosTurma(_model, "turmas.csv", professorModel, alunoModel);
-            _acessaDados.LeituraDados();
+            _validacao = new ValidacaoContext<Turma>(new ValidacaoTurma());
         }
 
         public void Add()
@@ -43,9 +43,13 @@ namespace Trabalho_2.Controller
                 return;
             }
             Turma turma = new Turma(nome, professor, capacidade);
+            if (_validacao.ExecutarValidacao(turma) == false)
+            {
+                MessageBox.Show("Valores inválidos. Tente novamente");
+                return;
+            }
             _model.Add(turma);
             Clear();
-            _acessaDados.EscritaDados();
         }
 
         public List<Professor> GetProfessores()
@@ -101,7 +105,6 @@ namespace Trabalho_2.Controller
                 {
                     MessageBox.Show("Sucesso!.");
                     Clear();
-                    _acessaDados.EscritaDados();
                 }
                 else
                 {

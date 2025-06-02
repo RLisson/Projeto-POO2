@@ -80,6 +80,12 @@
     <Compile Include="Model\MatriculaModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategy\Interface\IValidacaoStrategy.cs" />
+    <Compile Include="Strategy\ValidacaoAluno.cs" />
+    <Compile Include="Strategy\ValidacaoContext.cs" />
+    <Compile Include="Strategy\ValidacaoCurso.cs" />
+    <Compile Include="Strategy\ValidacaoProfessor.cs" />
+    <Compile Include="Strategy\ValidacaoTurma.cs" />
     <Compile Include="View\AlunoView.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trabalho_2.Acessa_dados;
 using Trabalho_2.Model;
+using Trabalho_2.Strategy;
 using Trabalho_2.View;
 using Trabalho_2.View.Interface;
 using Trabalho2.Entidades;
@@ -16,12 +17,14 @@ namespace Trabalho_2.Controller
     {
         ProfessorModel _model;
         IProfessorView _view;
+        ValidacaoContext<Professor> _validacao;
 
         public ProfessorController(ProfessorModel model, ProfessorView view)
         {
             _model = model;
             _view = view;
             _view.SetController(this);
+            _validacao = new ValidacaoContext<Professor>(new ValidacaoProfessor());
         }
 
         public void Add()
@@ -29,6 +32,11 @@ namespace Trabalho_2.Controller
             string nome = _view.Nome;
             string cpf = _view.CPF;
             Professor professor = new Professor(nome, cpf);
+            if (_validacao.ExecutarValidacao(professor) == false)
+            {
+                MessageBox.Show("Valores inválidos. Tente novamente");
+                return;
+            }
             _model.Add(professor);
             Clear();
         }
