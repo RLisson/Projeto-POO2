@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trabalho_2.Acessa_dados;
 using Trabalho_2.Acessa_dados.Interface;
+using Trabalho_2.Factory;
 using Trabalho_2.Model;
 using Trabalho_2.Model.Abstrato;
 using Trabalho_2.Strategy;
@@ -22,6 +23,8 @@ namespace Trabalho_2.Controller
         AlunoView _view;
         MatriculaModel _matriculaModel;
         ValidacaoContext<Aluno> _validacao;
+        AlunoFactory _factory;
+        MatriculaFactory _matriculaFactory;
 
         public AlunoController(AlunoModel model, AlunoView view, MatriculaModel matriculaModel)
         {
@@ -30,6 +33,8 @@ namespace Trabalho_2.Controller
             _view.SetController(this);
             _matriculaModel = matriculaModel;
             _validacao = new ValidacaoContext<Aluno>(new ValidacaoAluno());
+            _factory = new AlunoFactory();
+            _matriculaFactory = new MatriculaFactory();
         }
 
         public void Add()
@@ -40,9 +45,9 @@ namespace Trabalho_2.Controller
                 MessageBox.Show("Número de matrícula já cadastrado.");
                 return;
             }
-            Matricula matricula = new Matricula(numeroMatricula);
+            Matricula matricula = _matriculaFactory.CriarInstancia(numeroMatricula);
             _matriculaModel.Add(matricula);
-            Aluno aluno = new Aluno(_view.Nome, _view.CPF, matricula);
+            Aluno aluno = _factory.CriarInstancia(_view.Nome, _view.CPF, matricula);
             if (_validacao.ExecutarValidacao(aluno) == false)
             {
                 MessageBox.Show("Valores inválidos. Tente novamente");

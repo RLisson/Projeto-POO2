@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trabalho_2.Factory;
 using Trabalho_2.Model;
 using Trabalho_2.Strategy;
 using Trabalho_2.View.Interface;
@@ -18,6 +19,7 @@ namespace Trabalho_2.Controller
         TurmaModel _turmaModel;
         AlunoModel _alunoModel;
         ValidacaoContext<Curso> _validacao;
+        CursoFactory _factory;
 
         public CursoController(CursoModel model, ICursoView view, TurmaModel turmaModel, AlunoModel alunoModel)
         {
@@ -27,13 +29,14 @@ namespace Trabalho_2.Controller
             _turmaModel = turmaModel;
             _alunoModel = alunoModel;
             _validacao = new ValidacaoContext<Curso>(new ValidacaoCurso());
+            _factory = new CursoFactory();
         }
 
         public void Add()
         {
             string nome = _view.Nome;
 
-            Curso curso = new Curso(nome);
+            Curso curso = _factory.CriarInstancia(nome);
             if (_validacao.ExecutarValidacao(curso) == false)
             {
                 MessageBox.Show("Valores inválidos. Tente novamente");

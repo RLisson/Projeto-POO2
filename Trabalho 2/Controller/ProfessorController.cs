@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trabalho_2.Acessa_dados;
+using Trabalho_2.Factory;
 using Trabalho_2.Model;
 using Trabalho_2.Strategy;
 using Trabalho_2.View;
@@ -18,6 +19,7 @@ namespace Trabalho_2.Controller
         ProfessorModel _model;
         IProfessorView _view;
         ValidacaoContext<Professor> _validacao;
+        ProfessorFactory _factory;
 
         public ProfessorController(ProfessorModel model, ProfessorView view)
         {
@@ -25,13 +27,14 @@ namespace Trabalho_2.Controller
             _view = view;
             _view.SetController(this);
             _validacao = new ValidacaoContext<Professor>(new ValidacaoProfessor());
+            _factory = new ProfessorFactory();
         }
 
         public void Add()
         {
             string nome = _view.Nome;
             string cpf = _view.CPF;
-            Professor professor = new Professor(nome, cpf);
+            Professor professor = _factory.CriarInstancia(nome, cpf);
             if (_validacao.ExecutarValidacao(professor) == false)
             {
                 MessageBox.Show("Valores inválidos. Tente novamente");

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trabalho_2.Acessa_dados;
+using Trabalho_2.Factory;
 using Trabalho_2.Model;
 using Trabalho_2.Strategy;
 using Trabalho_2.View;
@@ -20,6 +21,7 @@ namespace Trabalho_2.Controller
         ITurmaView _view;
         AlunoModel _alunoModel;
         ValidacaoContext<Turma> _validacao;
+        TurmaFactory _factory;
 
         public TurmaController(TurmaModel model, ITurmaView view, ProfessorModel professorModel, AlunoModel alunoModel)
         {
@@ -29,6 +31,7 @@ namespace Trabalho_2.Controller
             _professorModel = professorModel;
             _alunoModel = alunoModel;
             _validacao = new ValidacaoContext<Turma>(new ValidacaoTurma());
+            _factory = new TurmaFactory();
         }
 
         public void Add()
@@ -42,7 +45,7 @@ namespace Trabalho_2.Controller
                 MessageBox.Show("Professor não encontrado.");
                 return;
             }
-            Turma turma = new Turma(nome, professor, capacidade);
+            Turma turma = _factory.CriarInstancia(nome, professor, capacidade);
             if (_validacao.ExecutarValidacao(turma) == false)
             {
                 MessageBox.Show("Valores inválidos. Tente novamente");
