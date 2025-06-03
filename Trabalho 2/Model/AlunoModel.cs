@@ -9,12 +9,14 @@ using Trabalho2.Entidades;
 
 namespace Trabalho_2.Model
 {
-    public class AlunoModel : Model<Aluno>
+    public sealed class AlunoModel : Model<Aluno>
     {
+        private static readonly Lazy<AlunoModel> instance = new Lazy<AlunoModel>(() => new AlunoModel());
+        public static AlunoModel Instance() => instance.Value;
 
-        public AlunoModel(Model<Matricula> matriculaModel) : base()
+        private AlunoModel() : base()
         {
-            acessaDados = AcessaDadosAluno.Instance(this, "alunos.json", matriculaModel);
+            acessaDados = AcessaDadosAluno.Instance("alunos.json");
             acessaDados.LeituraDados();
         }
 

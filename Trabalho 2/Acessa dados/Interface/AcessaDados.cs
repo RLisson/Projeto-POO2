@@ -14,9 +14,8 @@ namespace Trabalho_2.Acessa_dados.Interface
         protected Model<T> model;
         protected string arquivo;
 
-        protected AcessaDados(Model<T> model, string arquivo)
+        protected AcessaDados(string arquivo)
         {
-            this.model = model;
             this.arquivo = arquivo;
         }
 
@@ -24,8 +23,8 @@ namespace Trabalho_2.Acessa_dados.Interface
         {
             return File.Exists(arquivo);
         }
-        
 
+        public abstract void SetModel();
         public abstract void LeituraDados();
         public abstract void EscritaDados();
     }

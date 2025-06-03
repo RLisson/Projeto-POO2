@@ -17,7 +17,7 @@ namespace Trabalho_2.Acessa_dados
         private static AcessaDadosMatricula instance;
         private static readonly object lockObject = new object();
 
-        public static AcessaDadosMatricula Instance(Model<Matricula> model, string arquivo)
+        public static AcessaDadosMatricula Instance(string arquivo)
         {
             if (instance == null)
             {
@@ -25,13 +25,18 @@ namespace Trabalho_2.Acessa_dados
                 {
                     if (instance == null)
                     {
-                        instance = new AcessaDadosMatricula(model, arquivo);
+                        instance = new AcessaDadosMatricula(arquivo);
                     }
                 }
             }
             return instance;
         }
-        private AcessaDadosMatricula(Model<Matricula> model, string arquivo) : base(model, arquivo) { }
+        private AcessaDadosMatricula(string arquivo) : base(arquivo) {  }
+
+        public override void SetModel()
+        {
+            this.model = MatriculaModel.Instance();
+        }
 
         public override void EscritaDados()
         {

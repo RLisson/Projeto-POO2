@@ -59,6 +59,7 @@
     <Compile Include="Controller\CursoController.cs" />
     <Compile Include="Controller\ProfessorController.cs" />
     <Compile Include="Controller\TurmaController.cs" />
+    <Compile Include="Entidades\Abstrato\IComposite.cs" />
     <Compile Include="Entidades\Abstrato\IHasId.cs" />
     <Compile Include="Entidades\Abstrato\Pessoa.cs" />
     <Compile Include="Entidades\Aluno.cs" />

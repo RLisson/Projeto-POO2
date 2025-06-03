@@ -1,0 +1,16 @@
+Template Method:
+
+A classe Model<T> na pasta Model/Abstrato parece seguir o padrão Template Method. Ela define um esqueleto de operações em métodos como Add, Remove, Get, e permite que subclasses especializem certos passos do algoritmo.
+
+Singleton:
+
+No código apresentado, o padrão Singleton está sendo utilizado para garantir que apenas uma única instância da classe AcessaDados<T> seja criada durante a execução do programa. Isso é útil em cenários onde é necessário centralizar e compartilhar o mesmo acesso a dados entre diferentes partes do sistema, evitando duplicação ou inconsistências.
+
+Strategy:
+
+No código apresentado, o Strategy Pattern é utilizado para encapsular diferentes regras de validação de entidades, como AlunoModel e TurmaModel, em classes separadas, permitindo alternar dinamicamente entre elas. A interface IValidacaoStrategy<T> define o contrato para as estratégias, enquanto as classes concretas ValidacaoAluno e ValidacaoTurma implementam a lógica específica de validação para alunos e turmas, respectivamente. O contexto ValidacaoContext<T> é responsável por executar a validação com base na estratégia fornecida, promovendo flexibilidade e extensibilidade. Assim, é possível adicionar novas regras de validação ou alterar a lógica existente sem impactar outras partes do sistema, mantendo o código modular e mais fácil de manter.
+
+Factory:
+O padrão Factory Method no código é utilizado para centralizar e padronizar a criação de instâncias de diferentes tipos de objetos, como AlunoModel, ProfessorModel e TurmaModel. Ele define uma interface comum para as fábricas (ModelFactory), que delegam a lógica de criação para subclasses específicas, como AlunoModelFactory e ProfessorModelFactory. Isso desacopla o código cliente (quem solicita a criação do objeto) dos detalhes de implementação e instanciamento, permitindo maior flexibilidade e extensibilidade. Por exemplo, se for necessário adicionar um novo modelo, basta criar uma nova classe de fábrica sem modificar o restante do sistema. Além disso, o uso de fábricas facilita a manutenção, promovendo coesão e organização no processo de criação de objetos.
+
+

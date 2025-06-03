@@ -32,6 +32,7 @@
             this.btnCadastroProfessores = new System.Windows.Forms.Button();
             this.btnCadastroTurmas = new System.Windows.Forms.Button();
             this.btnCadastroCursos = new System.Windows.Forms.Button();
+            this.btnGerarRelatorio = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCadastroAlunos
@@ -78,11 +79,23 @@
             this.btnCadastroCursos.UseVisualStyleBackColor = true;
             this.btnCadastroCursos.Click += new System.EventHandler(this.btnCadastroCursos_Click);
             // 
+            // btnGerarRelatorio
+            // 
+            this.btnGerarRelatorio.Location = new System.Drawing.Point(511, 64);
+            this.btnGerarRelatorio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGerarRelatorio.Name = "btnGerarRelatorio";
+            this.btnGerarRelatorio.Size = new System.Drawing.Size(100, 57);
+            this.btnGerarRelatorio.TabIndex = 4;
+            this.btnGerarRelatorio.Text = "Gerar relatório";
+            this.btnGerarRelatorio.UseVisualStyleBackColor = true;
+            this.btnGerarRelatorio.Click += new System.EventHandler(this.btnGerarRelatorio_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnGerarRelatorio);
             this.Controls.Add(this.btnCadastroCursos);
             this.Controls.Add(this.btnCadastroTurmas);
             this.Controls.Add(this.btnCadastroProfessores);
@@ -100,6 +113,7 @@
         private System.Windows.Forms.Button btnCadastroProfessores;
         private System.Windows.Forms.Button btnCadastroTurmas;
         private System.Windows.Forms.Button btnCadastroCursos;
+        private System.Windows.Forms.Button btnGerarRelatorio;
     }
 }
 

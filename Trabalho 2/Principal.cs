@@ -28,14 +28,19 @@ namespace Trabalho_2
         TurmaModel turmaModel;
         CursoModel cursoModel;
 
-        public Principal(AlunoModel alunoModel, MatriculaModel matriculaModel, ProfessorModel professorModel, TurmaModel turmaModel, CursoModel cursoModel)
+        public Principal()
         {
             InitializeComponent();
-            this.alunoModel = alunoModel;
-            this.matriculaModel = matriculaModel;
-            this.professorModel = professorModel;
-            this.turmaModel = turmaModel;
-            this.cursoModel = cursoModel;
+            this.alunoModel = AlunoModel.Instance();
+            this.matriculaModel = MatriculaModel.Instance();
+            this.professorModel = ProfessorModel.Instance();
+            this.turmaModel = TurmaModel.Instance();
+            this.cursoModel = CursoModel.Instance();
+            matriculaModel.Iniciar();
+            alunoModel.Iniciar();
+            professorModel.Iniciar();
+            turmaModel.Iniciar();
+            cursoModel.Iniciar();
         }
 
         private void btnCadastroAlunos_Click(object sender, EventArgs e)
@@ -64,6 +69,11 @@ namespace Trabalho_2
             cursoView = new CursoView();
             CursoController cursoController = new CursoController(cursoModel, cursoView, turmaModel, alunoModel);
             cursoView.Show();
+        }
+
+        private void btnGerarRelatorio_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

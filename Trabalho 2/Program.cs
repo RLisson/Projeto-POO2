@@ -17,12 +17,7 @@ namespace Trabalho_2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MatriculaModel matriculaModel = new MatriculaModel();
-            AlunoModel alunoModel = new AlunoModel(matriculaModel);
-            ProfessorModel professorModel = new ProfessorModel();
-            TurmaModel turmaModel = new TurmaModel(professorModel, alunoModel);
-            CursoModel cursoModel = new CursoModel(turmaModel, alunoModel);
-            Application.Run(new Principal(alunoModel, matriculaModel, professorModel, turmaModel, cursoModel));
+            Application.Run(new Principal());
         }
     }
 }

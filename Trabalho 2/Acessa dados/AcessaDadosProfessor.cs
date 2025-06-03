@@ -17,7 +17,7 @@ namespace Trabalho_2.Acessa_dados
         private static AcessaDadosProfessor instance;
         private static readonly object lockObject = new object();
 
-        public static AcessaDadosProfessor Instance(Model<Professor> model, string arquivo)
+        public static AcessaDadosProfessor Instance(string arquivo)
         {
             if (instance == null)
             {
@@ -25,14 +25,20 @@ namespace Trabalho_2.Acessa_dados
                 {
                     if (instance == null)
                     {
-                        instance = new AcessaDadosProfessor(model, arquivo);
+                        instance = new AcessaDadosProfessor(arquivo);
                     }
                 }
             }
             return instance;
         }
 
-        private AcessaDadosProfessor(Model<Professor> model, string arquivo) : base(model, arquivo) { }
+        private AcessaDadosProfessor(string arquivo) : base(arquivo) {  }
+
+        public override void SetModel()
+        {
+            this.model = ProfessorModel.Instance();
+
+        }
 
         public override void EscritaDados()
         {

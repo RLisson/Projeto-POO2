@@ -13,10 +13,16 @@ namespace Trabalho_2.Model.Abstrato
         protected List<T> cadastro;
         public int idAtual { get; set; }
         protected AcessaDados<T> acessaDados;
-        public Model()
+        protected Model()
         {
             cadastro = new List<T>();
             idAtual = 0;
+        }
+
+        public void Iniciar()
+        {
+            acessaDados.SetModel();
+            acessaDados.LeituraDados();
         }
 
         public void Add(T item)

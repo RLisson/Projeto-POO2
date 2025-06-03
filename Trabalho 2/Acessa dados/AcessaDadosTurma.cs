@@ -20,7 +20,7 @@ namespace Trabalho_2.Acessa_dados
         Model<Professor> _professorModel;
         Model<Aluno> _alunoModel;
 
-        public static AcessaDadosTurma Instance(Model<Turma> model, string arquivo, Model<Professor> professorModel, Model<Aluno> alunoModel)
+        public static AcessaDadosTurma Instance(string arquivo)
         {
             if (instance == null)
             {
@@ -28,17 +28,20 @@ namespace Trabalho_2.Acessa_dados
                 {
                     if (instance == null)
                     {
-                        instance = new AcessaDadosTurma(model, arquivo, professorModel, alunoModel);
+                        instance = new AcessaDadosTurma(arquivo);
                     }
                 }
             }
             return instance;
         }
 
-        private AcessaDadosTurma(Model<Turma> model, string arquivo, Model<Professor> professorModel, Model<Aluno> alunoModel) : base(model, arquivo)
+        private AcessaDadosTurma(string arquivo) : base(arquivo) {  }
+
+        public override void SetModel()
         {
-            _professorModel = professorModel;
-            _alunoModel = alunoModel;
+            this.model = TurmaModel.Instance();
+            _professorModel = ProfessorModel.Instance();
+            _alunoModel = AlunoModel.Instance();
         }
 
         public override void EscritaDados()

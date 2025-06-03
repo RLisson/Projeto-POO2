@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Trabalho_2.Acessa_dados.Interface;
+using Trabalho_2.Model;
 using Trabalho_2.Model.Abstrato;
 using Trabalho2.Entidades;
 
@@ -16,7 +17,7 @@ namespace Trabalho_2.Acessa_dados
         Model<Turma> _modelTurma;
         Model<Aluno> _modelAluno;
 
-        public static AcessaDadosCurso Instance(Model<Curso> model, string arquivo, Model<Turma> modelTurma, Model<Aluno> modelAluno)
+        public static AcessaDadosCurso Instance(string arquivo)
         {
             if (instance == null)
             {
@@ -24,16 +25,19 @@ namespace Trabalho_2.Acessa_dados
                 {
                     if (instance == null)
                     {
-                        instance = new AcessaDadosCurso(model, arquivo, modelTurma, modelAluno);
+                        instance = new AcessaDadosCurso(arquivo);
                     }
                 }
             }
             return instance;
         }
-        private AcessaDadosCurso(Model<Curso> model, string arquivo, Model<Turma> modelTurma, Model<Aluno> modelAluno) : base(model, arquivo)
+        private AcessaDadosCurso(string arquivo) : base(arquivo) {  }
+
+        public override void SetModel()
         {
-            _modelTurma = modelTurma;
-            _modelAluno = modelAluno;
+            this.model = CursoModel.Instance();
+            _modelTurma = TurmaModel.Instance();
+            _modelAluno = AlunoModel.Instance();
         }
 
         public override void EscritaDados()

@@ -17,7 +17,7 @@ namespace Trabalho_2.Acessa_dados
 
         Model<Matricula> _matriculaModel;
 
-        public static AcessaDadosAluno Instance(Model<Aluno> model, string arquivo, Model<Matricula> matriculaModel)
+        public static AcessaDadosAluno Instance(string arquivo)
         {
             if (instance == null)
             {
@@ -25,16 +25,19 @@ namespace Trabalho_2.Acessa_dados
                 {
                     if (instance == null)
                     {
-                        instance = new AcessaDadosAluno(model, arquivo, matriculaModel);
+                        instance = new AcessaDadosAluno(arquivo);
                     }
                 }
             }
             return instance;
         }
 
-        private AcessaDadosAluno(Model<Aluno> model, string arquivo, Model<Matricula> matriculaModel) : base(model, arquivo)
+        private AcessaDadosAluno(string arquivo) : base(arquivo) {  }
+
+        public override void SetModel()
         {
-            _matriculaModel = matriculaModel;
+            this.model = AlunoModel.Instance();
+            _matriculaModel = MatriculaModel.Instance();
         }
 
         public override void EscritaDados()

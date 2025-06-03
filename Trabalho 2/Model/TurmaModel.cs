@@ -9,12 +9,14 @@ using Trabalho2.Entidades;
 
 namespace Trabalho_2.Model
 {
-    public class TurmaModel : Model<Turma>
+    public sealed class TurmaModel : Model<Turma>
     {
-        public TurmaModel(Model<Professor> professorModel, Model<Aluno> alunoModel)
+        private static readonly Lazy<TurmaModel> instance = new Lazy<TurmaModel>(() => new TurmaModel());
+        public static TurmaModel Instance() => instance.Value;
+
+        private TurmaModel()
         {
-            acessaDados = AcessaDadosTurma.Instance(this, "turmas.json", professorModel, alunoModel);
-            acessaDados.LeituraDados();
+            acessaDados = AcessaDadosTurma.Instance("turmas.json");
         }
 
         public bool AdicionarAluno(int id, Aluno aluno)
