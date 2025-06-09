@@ -21,13 +21,13 @@ namespace Trabalho_2.Controller
         ValidacaoContext<Curso> _validacao;
         CursoFactory _factory;
 
-        public CursoController(CursoModel model, ICursoView view, TurmaModel turmaModel, AlunoModel alunoModel)
+        public CursoController(ICursoView view)
         {
-            _model = model;
+            _model = CursoModel.Instance();
             _view = view;
             view.SetController(this);
-            _turmaModel = turmaModel;
-            _alunoModel = alunoModel;
+            _turmaModel = TurmaModel.Instance();
+            _alunoModel = AlunoModel.Instance();
             _validacao = new ValidacaoContext<Curso>(new ValidacaoCurso());
             _factory = new CursoFactory();
         }

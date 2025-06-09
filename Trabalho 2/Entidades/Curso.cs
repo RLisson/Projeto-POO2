@@ -30,7 +30,7 @@ namespace Trabalho2.Entidades
 
         public string Exibir()
         {
-            return new string('-', Nivel) + Nome;
+            return new string ('-', Nivel) + "Curso: " + Nome;
         }
     }
 }

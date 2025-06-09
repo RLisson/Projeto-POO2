@@ -20,18 +20,18 @@ namespace Trabalho_2.Controller
     public class AlunoController
     {
         AlunoModel _model;
-        AlunoView _view;
+        IAlunoView _view;
         MatriculaModel _matriculaModel;
         ValidacaoContext<Aluno> _validacao;
         AlunoFactory _factory;
         MatriculaFactory _matriculaFactory;
 
-        public AlunoController(AlunoModel model, AlunoView view, MatriculaModel matriculaModel)
+        public AlunoController(IAlunoView view)
         {
-            _model = model;
+            _model = AlunoModel.Instance();
             _view = view;
             _view.SetController(this);
-            _matriculaModel = matriculaModel;
+            _matriculaModel = MatriculaModel.Instance();
             _validacao = new ValidacaoContext<Aluno>(new ValidacaoAluno());
             _factory = new AlunoFactory();
             _matriculaFactory = new MatriculaFactory();

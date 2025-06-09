@@ -21,9 +21,9 @@ namespace Trabalho_2.Controller
         ValidacaoContext<Professor> _validacao;
         ProfessorFactory _factory;
 
-        public ProfessorController(ProfessorModel model, ProfessorView view)
+        public ProfessorController(ProfessorView view)
         {
-            _model = model;
+            _model = ProfessorModel.Instance();
             _view = view;
             _view.SetController(this);
             _validacao = new ValidacaoContext<Professor>(new ValidacaoProfessor());

@@ -23,13 +23,13 @@ namespace Trabalho_2.Controller
         ValidacaoContext<Turma> _validacao;
         TurmaFactory _factory;
 
-        public TurmaController(TurmaModel model, ITurmaView view, ProfessorModel professorModel, AlunoModel alunoModel)
+        public TurmaController(ITurmaView view)
         {
-            _model = model;
+            _model = TurmaModel.Instance();
             _view = view;
             _view.SetController(this);
-            _professorModel = professorModel;
-            _alunoModel = alunoModel;
+            _professorModel = ProfessorModel.Instance();
+            _alunoModel = AlunoModel.Instance();
             _validacao = new ValidacaoContext<Turma>(new ValidacaoTurma());
             _factory = new TurmaFactory();
         }

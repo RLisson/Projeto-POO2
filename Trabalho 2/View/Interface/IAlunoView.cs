@@ -7,7 +7,7 @@ using Trabalho_2.Controller;
 
 namespace Trabalho_2.View.Interface
 {
-    internal interface IAlunoView
+    public interface IAlunoView
     {
         void SetController(AlunoController controller);
         string Id { get; set; }

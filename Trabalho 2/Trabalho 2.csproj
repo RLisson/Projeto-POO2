@@ -53,6 +53,7 @@
     <Compile Include="Acessa dados\AcessaDadosCurso.cs" />
     <Compile Include="Acessa dados\AcessaDadosMatricula.cs" />
     <Compile Include="Acessa dados\AcessaDadosProfessor.cs" />
+    <Compile Include="Acessa dados\AcessaDadosRelatorio.cs" />
     <Compile Include="Acessa dados\AcessaDadosTurma.cs" />
     <Compile Include="Acessa dados\Interface\AcessaDados.cs" />
     <Compile Include="Controller\AlunoController.cs" />
