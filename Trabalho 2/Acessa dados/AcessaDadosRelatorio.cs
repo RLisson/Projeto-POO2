@@ -10,7 +10,7 @@ using Trabalho2.Entidades;
 
 namespace Trabalho_2.Acessa_dados
 {
-    public class AcessaDadosRelatorio : AcessaDados<Curso>
+    public sealed class AcessaDadosRelatorio : AcessaDados<Curso>
     {
         private static AcessaDadosRelatorio instance;
         private static readonly object lockObject = new object();
@@ -49,6 +49,7 @@ namespace Trabalho_2.Acessa_dados
                             sw.WriteLine(linha);
                             linha = turma.Professor.Exibir();
                             sw.WriteLine(linha);
+                            sw.WriteLine("---Alunos:");
                             foreach (var aluno in turma.Alunos)
                             {
                                 linha = aluno.Exibir();
